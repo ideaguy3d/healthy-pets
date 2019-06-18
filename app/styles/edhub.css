@@ -95,28 +95,9 @@ md-grid-tile a {
 }
 
 /********************************
-    -- end of edhub initial ui code --
+-- end of edhub initial ui code --
 **********************************/
 
-.L9-text-center {
-    text-align: center;
-}
-
-.L9-text-right {
-    text-align: right;
-}
-
-.L9-text-left {
-    text-align: left;
-}
-
-.L9-w33 {
-    width: 33%;
-}
-
-.L9-Hero-landing {
-    height: 100%;
-}
 
 md-input-container.md-icon-float > ng-md-icon {
     top: 8px;
@@ -124,7 +105,7 @@ md-input-container.md-icon-float > ng-md-icon {
     right: auto;
 }
 
-.edhub-overflow-hidden {
+.j-overflow-hidden {
     overflow: hidden;
 }
 
@@ -139,11 +120,11 @@ md-input-container.md-icon-float > ng-md-icon {
     text-align: center;
 }
 
-md-content.edhub-landing-hero {
-    background: #fff url(../images/school-filtered.png) no-repeat fixed center;
+#j-main-landing-hero.j-landing-hero {
+    background: #fff url(../images/hero.png) no-repeat center;
     color: #f1f1f1;
-    height: 40vh;
-    background-size: cover;
+    height: 250px;
+    /*background-size: cover;*/
 }
 
 md-content.yc-landing-hero {
@@ -153,50 +134,51 @@ md-content.yc-landing-hero {
     background-size: cover;
 }
 
-md-content.edhub-landing-hero .edhub-landing-hero-text {
+#j-main-landing-hero.j-landing-hero .j-landing-hero-text {
     text-align: center;
+    text-shadow: #000000;
 }
 
-md-content.edhub-landing-hero .edhub-landing-hero-text h1 {
+#j-main-landing-hero.j-landing-hero .j-landing-hero-text h1 {
     font-size: 52px;
 }
 
-md-content.edhub-landing-hero .edhub-landing-hero-text h1 > img {
+#j-main-landing-hero.j-landing-hero .j-landing-hero-text h1 > img {
     vertical-align: bottom;
     width: 80px;
 }
 
-md-content.edhub-landing-hero .edhub-landing-hero-text p {
+#j-main-landing-hero.j-landing-hero .j-landing-hero-text p {
     font-size: 30px;
 }
 
-.edhub-text-center {
+.j-text-center {
     text-align: center;
 }
 
 
 @media screen and (max-width: 416px) {
-    md-content.edhub-landing-hero {
+    #j-main-landing-hero.j-landing-hero {
         background-size: 602px;
         background-position: top;
     }
 
-    md-content.edhub-landing-hero .edhub-landing-hero-text {
+    #j-main-landing-hero.j-landing-hero .j-landing-hero-text {
         text-align: center;
         margin-top: 8%;
     }
 
-    md-content.edhub-landing-hero .edhub-landing-hero-text h1 {
+    #j-main-landing-hero.j-landing-hero .j-landing-hero-text h1 {
         font-size: 40px;
         margin: 8px;
     }
 
-    md-content.edhub-landing-hero .edhub-landing-hero-text h1 > img {
+    #j-main-landing-hero.j-landing-hero .j-landing-hero-text h1 > img {
         vertical-align: bottom;
         width: 60px;
     }
 
-    md-content.edhub-landing-hero .edhub-landing-hero-text p {
+    #j-main-landing-hero.j-landing-hero .j-landing-hero-text p {
         font-size: 20px;
         margin: 8px;
     }

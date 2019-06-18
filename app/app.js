@@ -4,7 +4,7 @@ angular.module('edhubJobsApp', [
     function ($routeProvider) {
         $routeProvider
             .when('/', {
-                templateUrl: 'states/landing/view.map-landing.html',
+                templateUrl: 'states/landing/view.landing.html',
                 controller: 'LandingCtrl',
                 controllerAs: 'landingCtrl'
             })
