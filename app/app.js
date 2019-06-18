@@ -3,28 +3,10 @@ angular.module('edhubJobsApp', [
 ]).config(['$routeProvider', '$locationProvider',
     function ($routeProvider) {
         $routeProvider
-        //-- Google Maps app
             .when('/', {
-                templateUrl: 'states/julius/view.map-render.html',
-                controller: 'JuliusCtrl',
-                controllerAs: 'cJulius',
-                resolve: {}
-            })
-            .when('/events', {
-                templateUrl: 'states/julius/view.julius2.html',
-                controller: 'JuliusCtrl',
-                controllerAs: 'cJulius',
-                resolve: {}
-            })
-            .when('/club/:name', {
-                templateUrl: 'states/club-profile/view.club-profile.html',
-                controller: 'ClubProfileCtrl',
-                controllerAs: 'cClubProfile'
-            })
-            .when('/post', {
-                templateUrl: 'states/post/view.post.html',
-                controller: 'PostCtrl',
-                controllerAs: 'postJobCtrl'
+                templateUrl: 'states/landing/view.landing.html',
+                controller: 'LandingCtrl',
+                controllerAs: 'landingCtrl'
             })
 
             /*******************************************
@@ -224,19 +206,6 @@ angular.module('edhubJobsApp', [
                     }
                 }
             })
-            .when('/signup2', {
-                templateUrl: 'states/auth/view.signup.html',
-                controller: 'AuthCtrl',
-                controllerAs: 'signup',
-                resolve: {
-                    unauthApplyRslv: function ($route) {
-                        // sta = Signup To Apply
-                        return $route.current.params.status === "sta"
-                            ? "Hi ^_^/ Please signup/login before applying"
-                            : null;
-                    }
-                }
-            })
             .when('/signup/:status', {
                 templateUrl: 'states/auth/view.signup.html',
                 controller: 'AuthCtrl',
@@ -284,26 +253,15 @@ angular.module('edhubJobsApp', [
                     }
                 }
             })
-            .when('/apply-thanks', {
-                templateUrl: 'states/apply/view.thanks.html'
-            })
             .when('/apply-job/:orgName/:jobId', {
                 templateUrl: 'states/apply/view.apply.job-org.html',
                 controller: 'ApplyToJobCtrl',
                 controllerAs: 'applyToJobCtrl'
             })
-            .when('/applications', {
+            .when('/org/apps', {
                 templateUrl: 'states/org-apps/view.org-apps.html',
                 controller: 'OrgApplicantsCtrl',
                 controllerAs: 'orgApps' // cOrgApplicants
-            })
-            .when('/lab916', {
-                templateUrl: '/states/lab916/view.landing.html'
-            })
-            .when('/uit1', {
-                templateUrl: 'ui-prac/uit1.html',
-                controller: 'uiPracCtrl',
-                controllerAs: 'ui'
             })
             .when('/view-job/:orgId/:orgName', {
                 templateUrl: 'states/apply/view.view-job.html',
@@ -317,38 +275,18 @@ angular.module('edhubJobsApp', [
                 }
             })
 
-            // Talent Acquisition states
-            .when('/talent-acquisition', {
-                templateUrl: 'states/talent-acquisition/view.talent-acquisition.html',
-                controller: 'TalentAcquisitionCtrl',
-                controllerAs: 'cTalentAcquisition'
-            })
-            // Performance Management states
-            .when('/performance-management', {
-                templateUrl: 'states/performance-management/view.performance-management.html',
-                // PerformanceManagementCtrl
-                controller: 'PerformanceManagementCtrl',
-                controllerAs: 'cPM',
-                resolve: {}
-            })
-            // Learning Management states
-            .when('/learning-management', {
-                templateUrl: 'states/learning-management/view.learning-management.html',
-                controller: 'LearningManagementCtrl',
-                controllerAs: 'cLM',
-                resolve: {}
-            })
-            // go to base url
+           // go to base url
             .otherwise('/');
 
         // Initialize Firebase
         const config = {
-            apiKey: "AIzaSyCmP0EGaJXE92fU4AwLSSeP4Y8TOc2u_xU",
-            authDomain: "maps1-408.firebaseapp.com",
-            databaseURL: "https://maps1-408.firebaseio.com",
-            projectId: "maps1-408",
-            storageBucket: "maps1-408.appspot.com",
-            messagingSenderId: "1070748410942"
+            apiKey: "AIzaSyD2VdKZgPdu3twTWW09Fz8tEH9rWucozZI",
+            authDomain: "ngfire-chat.firebaseapp.com",
+            databaseURL: "https://ngfire-chat.firebaseio.com",
+            projectId: "ngfire-chat",
+            storageBucket: "ngfire-chat.appspot.com",
+            messagingSenderId: "909282110429",
+            appId: "1:909282110429:web:88e4397c8fc0ba42"
         };
         firebase.initializeApp(config);
     }

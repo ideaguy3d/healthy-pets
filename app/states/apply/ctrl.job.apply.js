@@ -13,4 +13,5 @@
         const vm = this;
         vm.rParams = $routeParams;
     }
+
 }());

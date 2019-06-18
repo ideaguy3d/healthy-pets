@@ -16,7 +16,6 @@
         const orgApplicantsRef = firebase.database().ref('orgApplicants');
 
         /**
-         *
          * @param orgInfo
          * @param orgId
          * @returns {*}

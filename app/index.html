@@ -2,10 +2,10 @@
 <html lang="en" class="no-js" ng-app="edhubJobsApp">
 <head>
     <meta charset="utf-8">
-    <title>WatzLit</title>
+    <title>EntirelyPets</title>
 
     <meta http-equiv="x-ua-compatible" content="IE=edge">
-    <meta name="description" content="For places to go, WatzLit">
+    <meta name="description" content="For everything pets">
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
     <meta name="author" content="github.com/ideaguy3d">
 
@@ -22,8 +22,6 @@
     <link rel="stylesheet" href="styles/plamigo.css">
     <!-- endbuild -->
 
-    <!-- CDN scripts -->
-    <script src="https://cdn.firebase.com/libs/geofire/5.0.1/geofire.js"></script>
     <!-- &callback=myMap -->
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC97txSDaXo4QxSphjx_KqwW748OGwJUz8"></script>
 
@@ -43,35 +41,15 @@
     upgrade your browser</ato improve your experience.</p>
 <![endif]-->
 
-
 <!-------------------------------->
 <!-- main horizontal navigation -->
 <!-------------------------------->
 <div ng-include="'layout/navbar/in.main-nav.html'"></div>
 
-
-<!----------------------------------------->
-<!---- Initial coreSidenav Menu Button ---->
-<!----------------------------------------->
-<md-button id="edhub-core-nav-menu-btn" class="md-fab md-primary"
-           aria-label="Recent Jobs" ng-click="coreEdhubToggleSideNav()">
-    <ng-md-icon icon="menu"></ng-md-icon>
-</md-button>
-
-<!---------------------------------->
-<!------------ User Box ------------>
-<!---------------------------------->
-<div ng-include="'layout/box/in.user-box.html'"></div>
-
 <div ng-cloak layout="row" class="edhub-main-app-view-container">
-    <!---------------------->
-    <!------ Side-nav ------>
-    <!---------------------->
-    <div ng-include="'layout/sidenav/in.sidenav.html'" layout="vertical"></div>
-
-    <!--------------------->
-    <!-- app entry point -->
-    <!--------------------->
+    <!--------------------------------------->
+    <!----------- app entry point ----------->
+    <!--------------------------------------->
     <ng-view flex autoscroll="true"></ng-view>
 </div>
 
@@ -79,46 +57,11 @@
 
 <!-- TODO: Put this footer into an include or a directive -->
 <!-- footer -->
-<footer layout="row" layout-xs="column" style="background-color: whitesmoke;">
-    <!-- Left -->
-    <div flex layout-margin layout-padding>
+<footer layout="row" layout-xs="column" layout-align="center center" style="background-color: whitesmoke;">
+    <div flex="50">
         <h1 class="text-center">
-            About WatzLit
+           &copy; 2019 Entirely Pets INC
         </h1>
-        <h3>WatzLit shows where to go</h3>
-        <h4>The Team:</h4>
-        <p>Sales&Marketing: Brian</p>
-        <p>Development: <a href="https://crod93.herokuapp.com">Cody</a></p>
-        <p>Sales&Marketing: CJ</p>
-        <p>Engineering: <a href="http://linkedin.com/in/juliusalvarado">Julius</a></p>
-        <p>UX Design & Animation: Mike Lewis</p>
-    </div>
-
-    <!-- Right -->
-    <div flex layout-margin layout-padding>
-        <h1>watzlit.com Progress</h1>
-        <ol>
-            <li>
-                Code initial UI and basic Authentication
-                <ng-md-icon icon="check"></ng-md-icon>
-            </li>
-            <li>
-                Implement Backend API to CRUD data
-                <ng-md-icon icon="error"></ng-md-icon>
-            </li>
-            <li>
-                Integrate 3rd party API's
-                <ng-md-icon icon="error"></ng-md-icon>
-            </li>
-            <li>
-                Write Unit & e2e tests, <i>near future</i>
-                <ng-md-icon icon="error"></ng-md-icon>
-            </li>
-            <li>
-                Make UI even prettier for awesome UX, <i>near future</i>
-                <ng-md-icon icon="error"></ng-md-icon>
-            </li>
-        </ol>
     </div>
 </footer>
 
@@ -145,25 +88,17 @@
 <script src="services/ser.auth.js"></script>
 <script src="services/ser.job.post.js"></script>
 <script src="services/ser.org.list.js"></script>
-<script src="services/ser.gmap-landing.js"></script>
 <!-- controllers -->
 <script src="core.ctrl.js"></script>
 <script src="states/landing/ctrl.landing.js"></script>
 <script src="states/auth/ctrl.auth.js"></script>
 <script src="states/post/ctrl.post.js"></script>
-<script src="states/lab916/ctrl.lab916.js"></script>
 <script src="states/apply/ctrl.job.apply.js"></script>
 <script src="states/apply/ctrl.org.apply.js"></script>
 <script src="states/org-apps/ctrl.org-apps.js"></script>
-<script src="states/julius/ctrl.julius.js"></script>
 <script src="states/ycombinator/ctrl.yc-landing.js"></script>
-<script src="states/talent-acquisition/ctrl.talent-acquisition.js"></script>
-<script src="states/learning-management/ctrl.learning-management.js"></script>
-<script src="states/performance-management/ctrl.performance-management.js"></script>
-<script src="states/club-profile/ctrl.club-profile.js"></script>
 <!-- yc chat / messaging system prototype code -->
 <script src="states/ycombinator/chat/yc.chat.js"></script>
-<script src="ui-prac/ctrl.ui.prac.js"></script>
 <!-- endbuild -->
 
 
