@@ -8,10 +8,17 @@ angular.module('edhubJobsApp', [
                 controller: 'LandingCtrl',
                 controllerAs: 'landingCtrl'
             })
+            .when('/data', {
+                templateUrl: '',
+                controller: '',
+                controllerAs: ''
+            })
 
             /*******************************************
-             Other UI States to serve as reference code
+             * Other UI States to use as reference code *
              ******************************************/
+
+
             // Y Combinator states - 8 states
             .when('/ycombinator/positions', {
                 templateUrl: 'states/ycombinator/view.yc-landing.html',
@@ -26,15 +33,15 @@ angular.module('edhubJobsApp', [
                     // the user does not have to be authenticated
                     requireNoAuth: function ($location, ycAuthSer) {
                         ycAuthSer.auth.$requireSignIn()
-                            .then(function (authUser) {
-                                // if the user is already logged in send them to the channels state
-                                $location.url('/ycombinator/channels');
-                            })
-                            .catch(function (error) {
-                                var errorMessage = '__>> ERROR - error while going to UI state home';
-                                console.log(errorMessage, error);
-                                return errorMessage;
-                            });
+                                 .then(function (authUser) {
+                                     // if the user is already logged in send them to the channels state
+                                     $location.url('/ycombinator/channels');
+                                 })
+                                 .catch(function (error) {
+                                     var errorMessage = '__>> ERROR - error while going to UI state home';
+                                     console.log(errorMessage, error);
+                                     return errorMessage;
+                                 });
                     }
                 }
             })
@@ -46,15 +53,15 @@ angular.module('edhubJobsApp', [
                     // the user does not have to be authenticated
                     requireNoAuth: function ($location, ycAuthSer) {
                         ycAuthSer.auth.$requireSignIn()
-                            .then(function (authUser) {
-                                // if the user is already logged in send them to the channels state
-                                $location.url('/ycombinator/channels');
-                            })
-                            .catch(function (error) {
-                                var errorMessage = '__>> ERROR - error while going to UI state home';
-                                console.log(errorMessage, error);
-                                return errorMessage;
-                            });
+                                 .then(function (authUser) {
+                                     // if the user is already logged in send them to the channels state
+                                     $location.url('/ycombinator/channels');
+                                 })
+                                 .catch(function (error) {
+                                     var errorMessage = '__>> ERROR - error while going to UI state home';
+                                     console.log(errorMessage, error);
+                                     return errorMessage;
+                                 });
                     }
                 }
             })
@@ -66,15 +73,15 @@ angular.module('edhubJobsApp', [
                     // no authenticated user should go to login/signup view
                     requireNoAuthRsv: function (ycAuthSer, $location) {
                         return ycAuthSer.auth.$requireSignIn()
-                            .then(function (authUser) {
-                                console.log('__>> INFO - user is already logged in, authUser: ', authUser);
-                                $location.url('/ycombinator/channels');
-                            })
-                            // the user is not authenticated
-                            .catch(function (error) {
-                                console.log('__>> ERROR = ', error);
-                                return 'ERROR = ' + error;
-                            });
+                                        .then(function (authUser) {
+                                            console.log('__>> INFO - user is already logged in, authUser: ', authUser);
+                                            $location.url('/ycombinator/channels');
+                                        })
+                                        // the user is not authenticated
+                                        .catch(function (error) {
+                                            console.log('__>> ERROR = ', error);
+                                            return 'ERROR = ' + error;
+                                        });
                     }
                 }
             })
@@ -86,14 +93,14 @@ angular.module('edhubJobsApp', [
                     // no authenticated user should go to login/signup view
                     requireNoAuthRslv: function (ycAuthSer, $location) {
                         return ycAuthSer.auth.$requireSignIn()
-                            .then(function (res) {
-                                console.log('__>> INFO - user is already logged in, authUser: ', authUser);
-                                $location.url('/ycombinator/channels');
-                            })
-                            .catch(function (error) {
-                                console.log('__>> ERROR = ', error);
-                                return 'ERROR = ' + error;
-                            });
+                                        .then(function (res) {
+                                            console.log('__>> INFO - user is already logged in, authUser: ', authUser);
+                                            $location.url('/ycombinator/channels');
+                                        })
+                                        .catch(function (error) {
+                                            console.log('__>> ERROR = ', error);
+                                            return 'ERROR = ' + error;
+                                        });
                     }
                 }
             })
@@ -124,29 +131,30 @@ angular.module('edhubJobsApp', [
                 resolve: {
                     channelsRsv: function (ycChannelsSer) {
                         return ycChannelsSer.channels.$loaded()
-                            .catch(function (error) {
-                                console.log('__>> ERROR - There was an error fetching the channels, error: ' + error);
-                            });
+                                            .catch(function (error) {
+                                                console.log('__>> ERROR - There was an error fetching the channels, error: ' + error);
+                                            });
                     },
                     profileRsv: function ($location, ycAuthSer, ycUsersSer) {
                         return ycAuthSer.auth.$requireSignIn()
-                            .then(function (authUser) {
-                                return ycUsersSer.getProfile(authUser.uid).$loaded()
-                                    .then(function (profile) {
-                                        if (profile.displayName) {
-                                            return profile;
-                                        } else {
-                                            $location.url('/ycombinator/profile');
-                                        }
-                                    })
-                                    .catch(function (error) {
-                                        console.log('__>> ERROR - Unable to get the users profile, error: ', error);
-                                    });
-                            })
-                            .catch(function (error) {
-                                console.log('__>> ERROR - The user is not signed in, error: ', error);
-                                $location.url('/ycombinator/home');
-                            });
+                                        .then(function (authUser) {
+                                            return ycUsersSer.getProfile(authUser.uid).$loaded()
+                                                             .then(function (profile) {
+                                                                 if (profile.displayName) {
+                                                                     return profile;
+                                                                 }
+                                                                 else {
+                                                                     $location.url('/ycombinator/profile');
+                                                                 }
+                                                             })
+                                                             .catch(function (error) {
+                                                                 console.log('__>> ERROR - Unable to get the users profile, error: ', error);
+                                                             });
+                                        })
+                                        .catch(function (error) {
+                                            console.log('__>> ERROR - The user is not signed in, error: ', error);
+                                            $location.url('/ycombinator/home');
+                                        });
                     }
                 }
             })
@@ -170,7 +178,8 @@ angular.module('edhubJobsApp', [
                                     var displayName = profile.displayName;
                                     if (displayName) {
                                         return displayName;
-                                    } else {
+                                    }
+                                    else {
                                         $location.url('/ycombinator/profile');
                                     }
                                 }).catch(function (error) {
@@ -259,7 +268,7 @@ angular.module('edhubJobsApp', [
                 }
             })
 
-           // go to base url
+            // go to base url
             .otherwise('/');
 
         // Initialize Firebase
