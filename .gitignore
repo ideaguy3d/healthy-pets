@@ -4,3 +4,5 @@ dist
 .sass-cache
 .idea
 *.xml
+**/bower_components
+**/images
