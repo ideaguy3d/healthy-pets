@@ -1,0 +1,35 @@
+<!-- Horizontal Navigation -->
+<md-nav-bar ng-show="coreEdhubHorizontalState" md-selected-nav-item="currentNavItem"
+            nav-bar-aria-label="navigationLinks">
+
+    <!-- Home Link -->
+    <md-nav-item md-nav-href="#!/">
+        <b>WatzLit</b>
+    </md-nav-item>
+
+    <!-- #!/learning-management
+    <md-nav-item ng-if="!ccCurrentUser" md-nav-href="#!/top-rated">
+        Top Rated
+    </md-nav-item>
+    -->
+
+    <!--
+    <md-nav-item ng-if="!ccCurrentUser" md-nav-href="">
+        Near Me
+    </md-nav-item>
+    -->
+    <!-- #!/talent-acquisition -->
+    <md-nav-item md-nav-href="https://app.watzlit.co/find-friends">
+        Find Friends
+    </md-nav-item>
+
+    <!-- #!/events -->
+    <md-nav-item ng-if="!rootEdhubAuthUser.email" md-nav-href="#!/signup">
+        Signup/Login
+    </md-nav-item>
+
+    <md-nav-item ng-if="rootEdhubAuthUser.email" md-nav-href="#!/events">
+        <!-- <ng-md-icon icon="perm_identity"></ng-md-icon> -->
+        Events
+    </md-nav-item>
+</md-nav-bar>

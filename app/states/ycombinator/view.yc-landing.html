@@ -1,0 +1,49 @@
+<!-- ctrl=LandingCtrl as landingCtrl -->
+<section id="edhub-landing-section">
+    <!-- "Recent Jobs" Title -->
+    <md-toolbar id="edhub-recent-jobs-landing-title" class="md-padding md-warn edhub-text-center">
+        <h2>{{landingCtrl.ycombinatorMessage}}</h2>
+    </md-toolbar>
+
+    <!-- START: Recent Job Posts LOOP -->
+    <md-grid-list md-cols-xs="1" md-cols-sm="2" md-cols-md="3" md-cols-lg="3" md-cols-xl="4"
+                  md-row-height="4:5"
+                  md-gutter="8px"> <!-- md-gutter-gt-sm="8px"  md-row-height-gt-sm="3:3"-->
+
+        <!-- LOOP START - data card landingCtrl.jobPostings -->
+        <md-grid-tile ng-repeat="post in landingCtrl.orgFeed | orderBy : 'timestamp' : true">
+            <md-card class="{{'edhub-landing-job'+$index}}">
+                <!-- image -->
+                <img ng-src="images/edhub-bg-2x.png" class="md-card-image" alt="Washed Out">
+                <!-- header -->
+                <md-card-title>
+                    <md-card-title-text>
+                        <span class="md-headline">{{ post.orgName }}</span>
+                    </md-card-title-text>
+                </md-card-title>
+
+                <!-- action buttons -->
+                <md-card-actions layout="row" layout-align="start center">
+                    <!-- apply button -->
+                    <md-button class="md-primary md-raised" ng-click="landingCtrl.apply2org(post)">
+                        Apply
+                    </md-button>
+                    <!-- dismiss button -->
+                    <md-button class="md-raised" ng-click="">
+                        Dismiss
+                    </md-button>
+                    <!-- help button -->
+                    <md-button class="md-icon-button" aria-label="help">
+                        <ng-md-icon icon="help_outline"></ng-md-icon>
+                    </md-button>
+                </md-card-actions>
+
+                <!-- Organization Description -->
+                <md-card-content>
+                    <p>{{post.aboutTheOrganization}}</p>
+                </md-card-content>
+            </md-card>
+        </md-grid-tile>
+    </md-grid-list>
+    <!-- END OF: Recent Job Posts -->
+</section>

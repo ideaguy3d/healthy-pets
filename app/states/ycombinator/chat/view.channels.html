@@ -1,0 +1,71 @@
+<section class="main" layout="row">
+    <!-- LEFT SIDE - the sidebar -->
+    <div class="sidebar" flex="20">
+        <div class="slack-name">
+            <h2>Y Combinator Talent Messaging System</h2>
+        </div>
+
+        <div class="channel-list">
+            <!-- ng-switch-window: CHANNEL MESSAGES -->
+            <div class="list-head">Channels</div>
+            <div class="channel" ng-repeat="channel in cycChannels.channels">
+                <md-button data-ng-click="cycChannels.getMessagesFor(channel.$id, 'forChannel')"
+                           class="edhub-channel-list-item-btn">
+                    # {{ channel.name }}
+                </md-button>
+            </div>
+
+            <!-- ng-switch-window: CREATE CHANNEL -->
+            <div class="channel create">
+                <a ng-click="cycChannels.switchChannel(cycChannels.toDisplay.createChannel)">
+                    + create channel
+                </a>
+            </div>
+
+            <!-- ng-switch-window: DIRECT MESSAGES -->
+            <div class="list-head">Direct Messages</div>
+            <div class="channel" ng-repeat="user in cycChannels.users">
+                <md-button ng-if="user.$id !== cycChannels.profile.$id"
+                           data-ng-click="cycChannels.getMessagesFor(user.$id, 'forUsers')">
+                    <!-- presence indicator, user.online -->
+                    <span class="presence" ng-class="{online: user.online}"></span>
+                    {{ user.displayName }}
+                </md-button>
+            </div>
+        </div>
+
+        <div class="my-info">
+            <img class="user-pic" ng-src="{{ cycChannels.getGravatar(cycChannels.profile.$id) }}" alt="avatar"/>
+            <div class="user-info">
+                <div class="user-name">
+                    <span class="presence" ng-class="{online: cycChannels.profile.online}"></span>
+                    {{ cycChannels.profile.displayName || 'displayName is NULL' }}
+                </div>
+
+                <div class="options">
+                    <a ng-href="/#!/ycombinator/profile">edit profile</a>
+                    /
+                    <a href="#" ng-click="cycChannels.logout()">logout</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- RIGHT SIDE - inner window container -->
+    <div class="message-pane" flex="80">
+        <!-- where a nested ui-state would go -->
+        <!--<ui-view></ui-view>-->
+
+        <div id="yc-chat-view">
+            <div ng-switch="cycChannels.window">
+                <div ng-switch-when="createChannel">
+                    <div ng-include="'states/ycombinator/chat/in.create-channel.html'"></div>
+                </div>
+
+                <div ng-switch-when="messages">
+                    <div ng-include="'states/ycombinator/chat/in.messages.html'"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

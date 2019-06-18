@@ -1,0 +1,30 @@
+<!-- ctrl=OrgApplicantsCtrl as orgApps -->
+<div class="edhub-view-mtop">
+    <h1 class="edhub-text-center">Applications</h1>
+    <h2 class="edhub-text-center">{{orgApps.userEmail ? orgApps.userEmail : "You're not logged in =T"}}</h2>
+
+    <!-- applicants grid -->
+    <md-grid-list md-cols-xs="1" md-cols-md="2" md-cols-gt-md="3"
+                  md-row-height="2:2" md-row-height-gt-md="3:3"
+                  md-gutter="12px" md-gutter-gt-sm="8px">
+        <md-grid-tile ng-repeat="a in orgApps.applicants | orderBy : 'timestamp' : true" class="gray">
+            <div layout="column" layout-align="start start" layout-margin>
+                <div flex>
+                    <h2 class="edhub-applicant-linkedin-link">
+                        <a ng-href="{{a.applicantLinkedin}}" target="_blank">
+                            <ng-md-icon icon="person_pin"></ng-md-icon> LinkedIn </a>
+                    </h2>
+                </div>
+                <div flex-xs="100" flex-sm="80" flex-gt-sm="60">
+                    <p><b>Cover:</b></p>
+                    <p>{{a.applicantCover}}</p>
+                    <p><b>Email:</b></p>
+                    <p>{{a.applicantEmail}}</p>
+                </div>
+            </div>
+            <md-grid-tile-footer class="dark-bg">
+                <h2> &nbsp;<strong>{{a.applicantName}}</strong></h2>
+            </md-grid-tile-footer>
+        </md-grid-tile>
+    </md-grid-list>
+</div>

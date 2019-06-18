@@ -1,0 +1,169 @@
+<!-- ctrl=LandingCtrl as landingCtrl -->
+<section id="edhub-landing-section">
+    <!-- ~ Decent looking UI Section for when I implement the Job Search functionality ~
+    <md-content layout-padding>
+        <md-toolbar class="text-center">
+            <h2 md-truncate>Search for a job in Education</h2>
+        </md-toolbar>
+        <div layout-gt-sm="row">
+            <md-input-container flex>
+                <label>Keyword</label>
+                <input>
+            </md-input-container>
+
+            <md-input-container flex>
+                <label>Location</label>
+                <input>
+            </md-input-container>
+        </div>
+        <md-button class="md-raised" aria-label="Search">
+            Search For Education Jobs
+        </md-button>
+    </md-content>
+
+    <br><br>
+    -->
+
+    <!-- START:  Hero Landing -->
+    <md-content layout-padding class="edhub-landing-hero edhub-overflow-hidden">
+        <div class="edhub-landing-hero-text">
+            <h1><img src="images/elephant-suit.png" alt="logo">EdHub</h1>
+            <p>Talent Management System</p>
+
+            <div layout="row" layout-align="center center" layout-wrap>
+                <md-button class="md-fab md-primary" aria-label="Recent Jobs" ng-click="landingCtrl.scroll2recentJobs()">
+                    <ng-md-icon icon="work"></ng-md-icon>
+                </md-button>
+                <md-button ng-click="landingCtrl.scroll2recentJobs()">Recent Jobs</md-button>
+            </div>
+        </div>
+    </md-content>
+    <!-- END OF: Hero Landing -->
+
+    <!-- The EdHub anim vid -->
+    <section ng-show="landingCtrl.showVid" layout="column" layout-align="center center" layout-padding>
+        <!-- The Blender3D anim video ^_^ -->
+        <iframe src="https://spark.adobe.com/video/IxtVoZ1nCN0Kc/embed" width="960" height="540" frameborder="0"
+               allowfullscreen></iframe>
+    </section>
+
+    <!-- "Recent Jobs" Title -->
+    <md-toolbar id="edhub-recent-jobs-landing-title" class="md-padding edhub-text-center">
+        <h2>Organizations Looking for Talent</h2>
+    </md-toolbar>
+
+    <!-- START: Recent Job Posts LOOP -->
+    <md-content id="edhub-org-feed" class="md-padding" layout="row" layout-xs="column" layout-align="center center">
+        <div flex-xs flex-gt-xs="50" layout="column">
+            <!-- In-card mixed Actions CARD -->
+            <!-- LOOP START - 1 column data card landingCtrl.jobPostings -->
+            <md-card ng-repeat="post in landingCtrl.orgFeed | orderBy : 'timestamp' : true"
+                     class="{{'edhub-landing-job'+$index}}">
+                <!-- image -->
+                <img ng-src="images/edhub-bg-2x.png" class="md-card-image" alt="Washed Out">
+                <!-- header -->
+                <md-card-title>
+                    <md-card-title-text>
+                        <span class="md-headline">{{ post.orgName }}</span>
+                    </md-card-title-text>
+                </md-card-title>
+                <!-- action buttons -->
+                <md-card-actions layout="row" layout-align="start center">
+                    <!-- apply button -->
+                    <md-button class="md-primary md-raised" ng-click="landingCtrl.apply2org(post)">
+                        Apply
+                    </md-button>
+                    <!-- dismiss button -->
+                    <md-button class="md-raised" ng-click="">
+                        Dismiss
+                    </md-button>
+                    <!-- help button -->
+                    <md-button class="md-icon-button" aria-label="help">
+                        <ng-md-icon icon="help_outline"></ng-md-icon>
+                    </md-button>
+                </md-card-actions>
+
+                <!-- Organization Description -->
+                <md-card-content>
+                    <p>{{post.aboutTheOrganization}}</p>
+                </md-card-content>
+            </md-card>
+        </div>
+    </md-content>
+    <!-- END OF: Recent Job Posts -->
+
+    <!-- START: md-card templates 1 -->
+    <!--
+    <md-content class="md-padding" layout-xs="column" layout="row">
+        <div flex-xs flex-gt-xs="50" layout="column">
+            <md-card>
+                <img ng-src="images/chalkboard3dArt1.png" class="md-card-image" alt="Washed Out">
+                <md-card-title>
+                    <md-card-title-text>
+                        <span class="md-headline">Icon action buttons</span>
+                    </md-card-title-text>
+                </md-card-title>
+                <md-card-content>
+                    <p>
+                        The titles of Washed Out's breakthrough song and the first single from Paracosm share the
+                        two most important words in Ernest Greene's musical language: feel it. It's a simple request, as
+                        well...
+                    </p>
+                </md-card-content>
+                <md-card-actions layout="row" layout-align="end center">
+                    <md-button class="md-icon-button" aria-label="Favorite">
+                        <ng-md-icon icon="favorite"></ng-md-icon>
+                    </md-button>
+                    <md-button class="md-icon-button" aria-label="Settings">
+                        <ng-md-icon icon="menu"></ng-md-icon>
+                    </md-button>
+                    <md-button class="md-icon-button" aria-label="Share">
+                        <ng-md-icon icon="share"></ng-md-icon>
+                    </md-button>
+                </md-card-actions>
+            </md-card>
+            <md-card>
+                <img ng-src="images/chalkboard3dArt1.png" class="md-card-image" alt="Washed Out">
+                <md-card-actions layout="row" layout-align="end center">
+                    <md-button class="md-icon-button" aria-label="Favorite">
+                        <ng-md-icon icon="favorite"></ng-md-icon>
+                    </md-button>
+                    <md-button class="md-icon-button" aria-label="Settings">
+                        <ng-md-icon icon="menu"></ng-md-icon>
+                    </md-button>
+                    <md-button class="md-icon-button" aria-label="Share">
+                        <ng-md-icon icon="share"></ng-md-icon>
+                    </md-button>
+                </md-card-actions>
+            </md-card>
+            <md-card>
+                <md-card-header>
+                    <md-card-avatar>
+                        <img src="images/elephant-suit.png"/>
+                    </md-card-avatar>
+                    <md-card-header-text>
+                        <span class="md-title">AngularJS</span>
+                        <span class="md-subhead">Material</span>
+                    </md-card-header-text>
+                </md-card-header>
+                <img ng-src="images/chalkboard3dArt1.png" class="md-card-image" alt="Washed Out">
+                <md-card-title>
+                    <md-card-title-text>
+                        <span class="md-headline">Card header</span>
+                    </md-card-title-text>
+                </md-card-title>
+                <md-card-content>
+                    <p>
+                        The titles of Washed Out's breakthrough song and the first single from Paracosm share the
+                        two most important words in Ernest Greene's musical language: feel it. It's a simple request, as
+                        well...
+                    </p>
+                </md-card-content>
+            </md-card>
+        </div>
+    </md-content>
+    -->
+    <!-- END OF: md-card templates 1 -->
+
+
+</section>

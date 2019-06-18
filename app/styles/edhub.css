@@ -1,0 +1,767 @@
+body {
+    padding: 0;
+}
+
+.edhub-margin-auto {
+    margin: auto !important;
+}
+
+.edhub-vh100 {
+    height: 100vh;
+}
+
+.edhub-vh70 {
+    height: 70vh;
+}
+
+.edhub-view-mtop {
+    margin: 100px;
+}
+
+@media screen and (max-width: 600px) {
+    #edhub-signup-form {
+        width: 390px;
+    }
+}
+
+md-grid-tile.gray {
+    background-color: rgba(0, 0, 0, 0.54);
+    color: rgb(238, 238, 238);
+    background-image: url(http://three29.julius3d.com/img/mountain-bg1.jpg);
+}
+
+md-grid-tile-footer.dark-bg {
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+md-grid-tile a {
+    text-decoration: none;
+}
+
+.edhub-applicant-linkedin-link a:active {
+    text-decoration: none;
+}
+
+.edhub-applicant-linkedin-link a:visited {
+    text-decoration: none;
+}
+
+.edhub-auth-error {
+    color: indianred;
+}
+
+/**
+    -- edhub anim prac --
+**/
+
+.div-inline {
+    display: inline-block;
+}
+
+.left-150 {
+    position: absolute;
+    left: -160px;
+}
+
+#prac1-wrapper.jbaseclass-add,
+#prac1-wrapper.jbaseclass-remove {
+    transition: padding 200ms linear;
+}
+
+#prac1-wrapper.jbaseclass,
+#prac1-wrapper.jbaseclass-add-active {
+    padding-left: 250px;
+}
+
+#prac1-wrapper.jbaseclass-add #sidediv-wrapper,
+#prac1-wrapper.jbaseclass-remove #sidediv-wrapper,
+#prac1-wrapper.jbaseclass-add .left-150,
+#prac1-wrapper.jbaseclass-remove .left-150 {
+    transition: left 200ms linear;
+}
+
+#prac1-wrapper.jbaseclass-add-active #sidediv-wrapper,
+#prac1-wrapper.jbaseclass #sidediv-wrapper {
+    left: 150px;
+}
+
+#prac1-wrapper.jbaseclass-add-active .left-150,
+#prac1-wrapper.jbaseclass .left-150 {
+    left: 320px;
+}
+
+#edhub-core-nav-menu-btn {
+    position: fixed;
+}
+
+/********************************
+    -- end of edhub initial ui code --
+**********************************/
+
+.L9-text-center {
+    text-align: center;
+}
+
+.L9-text-right {
+    text-align: right;
+}
+
+.L9-text-left {
+    text-align: left;
+}
+
+.L9-w33 {
+    width: 33%;
+}
+
+.L9-Hero-landing {
+    height: 100%;
+}
+
+md-input-container.md-icon-float > ng-md-icon {
+    top: 8px;
+    left: 2px;
+    right: auto;
+}
+
+.edhub-overflow-hidden {
+    overflow: hidden;
+}
+
+.edhub-w33 {
+    width: 33%;
+}
+
+.edhub-general-error {
+    margin-top: 0;
+    color: indianred;
+    border: 1px solid indianred;
+    text-align: center;
+}
+
+md-content.edhub-landing-hero {
+    background: #fff url(../images/school-filtered.png) no-repeat fixed center;
+    color: #f1f1f1;
+    height: 40vh;
+    background-size: cover;
+}
+
+md-content.yc-landing-hero {
+    background: #e4e4e4 no-repeat fixed center;
+    color: #f1f1f1;
+    height: 40vh;
+    background-size: cover;
+}
+
+md-content.edhub-landing-hero .edhub-landing-hero-text {
+    text-align: center;
+}
+
+md-content.edhub-landing-hero .edhub-landing-hero-text h1 {
+    font-size: 52px;
+}
+
+md-content.edhub-landing-hero .edhub-landing-hero-text h1 > img {
+    vertical-align: bottom;
+    width: 80px;
+}
+
+md-content.edhub-landing-hero .edhub-landing-hero-text p {
+    font-size: 30px;
+}
+
+.edhub-text-center {
+    text-align: center;
+}
+
+
+@media screen and (max-width: 416px) {
+    md-content.edhub-landing-hero {
+        background-size: 602px;
+        background-position: top;
+    }
+
+    md-content.edhub-landing-hero .edhub-landing-hero-text {
+        text-align: center;
+        margin-top: 8%;
+    }
+
+    md-content.edhub-landing-hero .edhub-landing-hero-text h1 {
+        font-size: 40px;
+        margin: 8px;
+    }
+
+    md-content.edhub-landing-hero .edhub-landing-hero-text h1 > img {
+        vertical-align: bottom;
+        width: 60px;
+    }
+
+    md-content.edhub-landing-hero .edhub-landing-hero-text p {
+        font-size: 20px;
+        margin: 8px;
+    }
+}
+
+.page-wrapper {
+    max-width: 550px;
+    margin-right: auto;
+    margin-left: auto;
+    padding: 15px;
+}
+
+.page-wrapper .logo-img {
+    margin-top: -10px;
+}
+
+.main {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+}
+
+.sidebar {
+    display: inline-block;
+    width: 19.5%;
+    vertical-align: top;
+    height: 100%;
+    background: #4d394b;
+    position: relative;
+    overflow-y: scroll;
+    padding-bottom: 100px;
+}
+
+.sidebar .slack-name {
+    background: #3E313C;
+    padding: 15px 0px 15px 15px;
+}
+
+.sidebar .slack-name h2 {
+    color: #fff;
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+.sidebar .channel-list {
+    margin-top: 20px;
+    background: #4d394b;
+    position: relative;
+}
+
+.sidebar .channel-list .channel a {
+    display: block;
+    color: rgba(255, 255, 255, 0.6);
+    padding: 3px 0px 3px 15px;
+    width: 90%;
+    font-weight: 300;
+
+    -webkit-border-top-right-radius: 4px;
+    -webkit-border-bottom-right-radius: 4px;
+    -moz-border-radius-topright: 4px;
+    -moz-border-radius-bottomright: 4px;
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+}
+
+.sidebar .channel-list .channel a:hover {
+    text-decoration: none;
+    background: #3E313C;
+}
+
+.sidebar .channel-list .channel a.selected {
+    background: #4c9689;
+    color: #fff;
+    text-decoration: none !important;
+}
+
+.sidebar .channel-list .channel.create {
+    font-style: italic;
+}
+
+.sidebar .channel-list .list-head {
+    margin-top: 10px;
+    color: #fff;
+    font-weight: bold;
+    margin-left: 10px;
+    text-transform: uppercase;
+}
+
+.sidebar .my-info {
+    position: fixed;
+    bottom: 0;
+    padding: 15px;
+    background: #3E313C;
+    width: 19.5%;
+}
+
+.sidebar .my-info .user-pic {
+    display: inline-block;
+    vertical-align: top;
+    width: 44px;
+    height: 44px;
+    border-radius: 4px;
+}
+
+.sidebar .my-info .user-info {
+    padding-left: 5px;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.sidebar .my-info .user-info .user-name {
+    color: #fff;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.sidebar .my-info .user-info .options {
+    color: #999;
+    font-size: 12px;
+}
+
+.sidebar .my-info .user-info .options a {
+    color: #999;
+    font-size: 12px;
+}
+
+.sidebar .presence {
+    border-radius: 50%;
+    display: inline-block;
+    position: relative;
+    width: 10px;
+    height: 10px;
+    background: #ab9ba9;
+    vertical-align: middle;
+}
+
+.sidebar .presence.online {
+    background: #99d04a;
+}
+
+.message-pane {
+    display: inline-block;
+    vertical-align: top;
+    height: 100%;
+    width: 80%;
+    overflow-y: scroll;
+    padding: 55px 15px 65px 15px;
+}
+
+.message-pane .header {
+    position: fixed;
+    top: 0;
+    background: #fff;
+    width: 100%;
+    z-index: 2;
+}
+
+.message-pane .header h1 {
+    padding: 12px 0 10px 0;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    font-size: 24px;
+    color: #555459;
+    font-weight: 900;
+}
+
+.message-pane .message-form {
+    position: fixed;
+    bottom: 0;
+    padding: 0 15px 15px 0;
+    background: #fff;
+    width: 79%;
+}
+
+.message-pane .message-wrap {
+    position: relative;
+    margin-top: 15px;
+}
+
+.message-pane .message-wrap .user-pic {
+    width: 36px;
+    height: 36px;
+    border-radius: 4px;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.message-pane .message-wrap .message-info {
+    display: inline-block;
+    vertical-align: top;
+    padding-left: 5px;
+}
+
+.message-pane .message-wrap .message-info .user-name {
+    color: #555459;
+    font-weight: 900;
+}
+
+.message-pane .message-wrap .message-info .user-name span {
+    color: #ccc;
+    font-weight: normal;
+    font-size: 10px;
+}
+
+/*
+ Juluis Alvarado ,
+ material.julius3d.com style rules
+ */
+
+html, body {
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+md-toolbar h1 {
+    font-size: 1.250em;
+    font-weight: 400;
+    margin: auto;
+}
+
+md-toolbar .md-toolbar-tools h1 {
+    font-size: 1.250em;
+    font-weight: 400;
+}
+
+md-list .md-button {
+    color: inherit;
+    font-weight: 500;
+    text-align: left;
+    width: 100%;
+}
+
+md-list .md-button.selected {
+    color: #03a9f4;
+}
+
+md-sidenav md-list {
+    padding: 0 0 10px 0;
+}
+
+#content {
+    padding: 8px 40px;
+}
+
+#content md-icon.avatar {
+    margin-top: 10px;
+}
+
+.avatar {
+    position: relative;
+    width: 128px;
+    height: 128px;
+    border: 2px solid #3e4f56;
+    border-radius: 50%;
+    display: inline-block;
+    overflow: hidden;
+    margin: 0;
+    vertical-align: middle;
+    zoom: 0.70;
+    -webkit-transform: translateZ(0) scale(0.7);
+    -moz-transform: translateZ(0) scale(0.7);
+    -ms-transform: translateZ(0) scale(0.7);
+    -o-transform: translateZ(0) scale(0.7);
+    transform: translateZ(0) scale(0.7);
+}
+
+.scrollable-nav-content {
+    position: absolute;
+    top: 136px;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    overflow: auto;
+}
+
+span.name {
+    font-weight: bold;
+    font-size: 1.1em;
+    padding-left: 6px;
+}
+
+.date-row {
+    margin: 16px 0;
+}
+
+/**
+    ------------------
+    CSS 3D Style rules
+       up to 2.3
+    ------------------
+**/
+
+.c3d-title1 {
+    text-align: center;
+    color: cornflowerblue;
+}
+
+div#box1 {
+    width: 100px;
+    height: 100px;
+    background-color: darkred;
+    transform: rotateX(40deg) translateX(100px);
+    transform-origin: 100% 100%;
+    transform-style: preserve-3d;
+}
+
+#box1childElem {
+    width: 100px;
+    height: 100px;
+    background-color: yellow;
+    transform: rotateX(80deg);
+}
+
+div#box2 {
+    padding: 4px;
+    width: 100px;
+    height: 100px;
+    background-color: #28272b;
+    transform: perspective(200px) translateX(100px) rotateX(40deg);
+}
+
+div.red-square {
+    padding: 2px;
+    width: 100px;
+    height: 100px;
+    background-color: indianred;
+    transform: translate3d(100px, 20px, 100px) scale3d(2, .7, 3) rotate3d(0, 1, 0, 40deg);
+}
+
+section.jborder3d {
+    border: solid #434343 2px;
+    padding: 4px;
+    perspective: 500px;
+    perspective-origin: bottom left;
+}
+
+/**
+    ------------------
+    CSS 3D Style rules
+          2.4
+    ------------------
+**/
+
+section.jcube3d-container {
+    border: solid #434343 2px;
+    padding: 4px;
+    perspective: 1000px;
+}
+
+section.jcube3d-container .plane1 {
+    display: inline-block;
+    width: 200px;
+    height: 200px;
+    background: mediumvioletred;
+    transform: translateX(10px) rotateY(70deg);
+}
+
+section.jcube3d-container .plane2 {
+    display: inline-block;
+    width: 200px;
+    height: 200px;
+    background: mediumvioletred;
+    transform: translateX(250px) rotateY(125deg);
+}
+
+#viewport {
+    perspective: 1000px;
+    width: 200px;
+    height: 200px;
+    margin: auto;
+}
+
+#viewport #cube {
+    transform: rotateX(0deg);
+    transform-style: preserve-3d;
+    width: 100%;
+    height: 100%;
+    transition: all 1s;
+}
+
+#viewport #cube div {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+}
+
+#viewport #cube #front {
+    background-color: palevioletred;
+    transform: translateZ(100px);
+}
+
+#viewport #cube #back {
+    background-color: palevioletred;
+    transform: translateZ(-100px) rotateY(180deg);
+}
+
+#viewport #cube #top {
+    background-color: yellowgreen;
+    transform: translateY(-100px) rotateX(90deg);
+}
+
+#viewport #cube #bottom {
+    background-color: yellowgreen;
+    transform: translateY(100px) rotateX(-90deg);
+}
+
+#viewport #cube #left {
+    background-color: dodgerblue;
+    transform: translateX(-100px) rotateY(-90deg);
+}
+
+#viewport #cube #right {
+    background-color: dodgerblue;
+    transform: translateX(100px) rotateY(90deg);
+}
+
+#anim-link:hover + #viewport > #cube {
+    transform: rotateX(-290deg) rotateY(150deg) rotateZ(120deg) translateX(400px);
+}
+
+#content-contacts {
+    padding-left: 24px;
+}
+
+.share {
+    float: right;
+}
+
+.p12 {
+    padding: 12px;
+}
+
+md-bottom-sheet md-list-item.j-inline {
+    display: inline-block;
+}
+
+.edhub-no-pad {
+    padding: 0 !important;
+}
+
+.edhub-no-mar {
+    margin: 0 !important;
+}
+
+.w100pct {
+    width: 100%;
+}
+
+/**
+AuthBox style rules
+**/
+#edhub-auth-info-container {
+    position: fixed;
+    z-index: 99;
+    right: 0;
+    /*top: 20px;*/
+}
+
+.edhub-auth-box-username {
+    margin: 0;
+}
+
+#edhub-auth-box-avatar {
+    width: 36px;
+    height: 36px;
+}
+
+.fabSpeedDialdemoMoreOptions .md-fab-top-right {
+    top: 16px;
+}
+
+@media (max-device-width: 600px) {
+    .fabSpeedDialdemoMoreOptions .md-fab-top-right {
+        top: 9px;
+        right: 9px;
+    }
+}
+
+.fabSpeedDialdemoMoreOptions .md-fab.demo-fab.trigger-fab:hover,
+.fabSpeedDialdemoMoreOptions .md-fab.demo-fab.trigger-fab.md-focused,
+.fabSpeedDialdemoMoreOptions .md-fab.demo-fab.action-fab:hover,
+.fabSpeedDialdemoMoreOptions .md-fab.demo-fab.action-fab.md-focused {
+    background-color: #333;
+}
+
+.fabSpeedDialdemoMoreOptions .md-fab.demo-fab.action-fab {
+    background-color: #aaa;
+}
+
+.fabSpeedDialdemoMoreOptions md-content div[flex="50"] {
+    padding: 15px;
+}
+
+.fabSpeedDialdemoMoreOptions md-fab-speed-dial {
+    margin-top: 89px;
+}
+
+.fabSpeedDialdemoMoreOptions md-fab-speed-dial md-fab-trigger {
+    transition: all 0.3s ease-in-out;
+    transform: scale(1);
+}
+
+.fabSpeedDialdemoMoreOptions md-fab-speed-dial.md-scale.ng-hide-add.ng-hide-add-active,
+.fabSpeedDialdemoMoreOptions md-fab-speed-dial.md-fling.ng-hide-add.ng-hide-add-active {
+    display: flex !important;
+}
+
+.fabSpeedDialdemoMoreOptions md-fab-speed-dial.md-scale.ng-hide md-fab-trigger,
+.fabSpeedDialdemoMoreOptions md-fab-speed-dial.md-fling.ng-hide md-fab-trigger {
+    transform: scale(0);
+}
+
+.fabSpeedDialdemoMoreOptions .intro {
+    padding-left: 5px;
+}
+
+#anim-link-jtwo:hover + #viewport > #cube {
+    animation: Rotate 5s 1;
+}
+
+@keyframes Rotate {
+    0% {
+        transform: rotateY(0deg);
+    }
+    20% {
+        transform: rotateY(30deg) rotateX(50deg);
+    }
+    70% {
+        transform: rotateY(210deg) rotateZ(120deg);
+    }
+    100% {
+        transform: rotateY(360deg);
+    }
+}
+
+.edhub-main-app-view-container {
+    min-height: 70%;
+}
+
+.edhub-channel-list-item-btn {
+    text-align: left !important;
+}
+
+.edhub-form1 {
+    padding: 12px;
+    margin: 12px;
+    border: 1px solid rgba(0,0,0,0.5);
+    border-radius: 4px;
+    transition: all linear 0.125s;
+}
+
+.edhub-form1.ng-hide {
+    opacity: 0;
+    transform: scale(0.8);
+}
+
+
+
+
+
+
