@@ -4,7 +4,7 @@ angular.module('edhubJobsApp', [
     function ($routeProvider) {
         $routeProvider
             .when('/', {
-                templateUrl: 'states/landing/view.landing.html',
+                templateUrl: 'states/landing/view.map-landing.html',
                 controller: 'LandingCtrl',
                 controllerAs: 'landingCtrl'
             })
@@ -12,7 +12,7 @@ angular.module('edhubJobsApp', [
             /*******************************************
              Other UI States to serve as reference code
              ******************************************/
-            // Y Combinator states
+            // Y Combinator states - 8 states
             .when('/ycombinator/positions', {
                 templateUrl: 'states/ycombinator/view.yc-landing.html',
                 controller: 'YCombinatorLandingCtrl',
@@ -187,27 +187,14 @@ angular.module('edhubJobsApp', [
                 }
             })
 
-            // The rest of the Edhub states
+            // Edhub states -
             .when('/landing', {
-                templateUrl: 'states/landing/view.landing.html',
+                templateUrl: 'states/landing/view.map-landing.html',
                 controller: 'LandingCtrl',
                 controllerAs: 'landingCtrl'
             })
             .when('/signup', {
                 templateUrl: 'states/auth/view.tab.join.html',
-                controller: 'AuthCtrl',
-                controllerAs: 'signup',
-                resolve: {
-                    unauthApplyRslv: function ($route) {
-                        // sta = Signup To Apply
-                        return $route.current.params.status === "sta"
-                            ? "Hi ^_^/ Please signup/login before applying"
-                            : null;
-                    }
-                }
-            })
-            .when('/signup/:status', {
-                templateUrl: 'states/auth/view.signup.html',
                 controller: 'AuthCtrl',
                 controllerAs: 'signup',
                 resolve: {
@@ -231,9 +218,6 @@ angular.module('edhubJobsApp', [
                             : null;
                     }
                 }
-            })
-            .when('/user-auth-logout/logout-page', {
-                templateUrl: 'states/auth/view.logout.html'
             })
             .when('/profile/:user', {
                 templateUrl: 'states/auth/view.profile.html'
@@ -280,13 +264,13 @@ angular.module('edhubJobsApp', [
 
         // Initialize Firebase
         const config = {
-            apiKey: "AIzaSyD2VdKZgPdu3twTWW09Fz8tEH9rWucozZI",
-            authDomain: "ngfire-chat.firebaseapp.com",
-            databaseURL: "https://ngfire-chat.firebaseio.com",
-            projectId: "ngfire-chat",
-            storageBucket: "ngfire-chat.appspot.com",
-            messagingSenderId: "909282110429",
-            appId: "1:909282110429:web:88e4397c8fc0ba42"
+            apiKey: "AIzaSyDEyWzMw0NPhKUnjWTNsYeqAWazk5cR_LI",
+            authDomain: "edhub-jobs.firebaseapp.com",
+            databaseURL: "https://edhub-jobs.firebaseio.com",
+            projectId: "edhub-jobs",
+            storageBucket: "edhub-jobs.appspot.com",
+            messagingSenderId: "743478741402",
+            appId: "1:743478741402:web:0923603feffd9137"
         };
         firebase.initializeApp(config);
     }

@@ -2,29 +2,25 @@
 <html lang="en" class="no-js" ng-app="edhubJobsApp">
 <head>
     <meta charset="utf-8">
-    <title>EntirelyPets</title>
-
+    <title>Entirely Pets</title>
+    
     <meta http-equiv="x-ua-compatible" content="IE=edge">
     <meta name="description" content="For everything pets">
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
     <meta name="author" content="github.com/ideaguy3d">
-
+    
     <!-- build:css(.) styles/vendor.css -->
     <!-- bower:css -->
-    <link rel="stylesheet" href="bower_components/angular-material/angular-material.css" />
-    <link rel="stylesheet" href="bower_components/angular-material-icons/angular-material-icons.css" />
+    <link rel="stylesheet" href="bower_components/angular-material/angular-material.css"/>
+    <link rel="stylesheet" href="bower_components/angular-material-icons/angular-material-icons.css"/>
     <!-- endbower -->
     <!-- endbuild -->
-
+    
     <!-- build:css(.tmp) styles/main.css -->
     <link rel="stylesheet" href="styles/edhub.css">
-    <link rel="stylesheet" href="styles/chat.css">
-    <link rel="stylesheet" href="styles/plamigo.css">
+    <link rel="stylesheet" href="styles/style.css">
     <!-- endbuild -->
-
-    <!-- &callback=myMap -->
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC97txSDaXo4QxSphjx_KqwW748OGwJUz8"></script>
-
+    
     <!-- ng-cloak -->
     <style type="text/css">
         [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
@@ -35,10 +31,12 @@
 
 <body ng-controller="CoreCtrl">
 
-
 <!--[if lt IE 7]>
-<p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">
-    upgrade your browser</ato improve your experience.</p>
+<p class="browsehappy">
+    You are using an <strong>outdated</strong> browser. Please
+    <a href="http://browsehappy.com/">upgrade your browser</a>
+    to improve your experience.
+</p>
 <![endif]-->
 
 <!-------------------------------->
@@ -53,14 +51,12 @@
     <ng-view flex autoscroll="true"></ng-view>
 </div>
 
-<br>
-
 <!-- TODO: Put this footer into an include or a directive -->
 <!-- footer -->
 <footer layout="row" layout-xs="column" layout-align="center center" style="background-color: whitesmoke;">
     <div flex="50">
-        <h1 class="text-center">
-           &copy; 2019 Entirely Pets INC
+        <h1 class="j-text-center">
+            &copy; 2019 Entirely Pets INC
         </h1>
     </div>
 </footer>
