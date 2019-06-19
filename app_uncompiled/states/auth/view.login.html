@@ -1,0 +1,35 @@
+<!-- ctrl=AuthCtrl as login -->
+<div layout="row" layout-align="center center" layout-padding layout-wrap>
+    <form flex="grow" name="loginForm" ng-submit="login.userLogin()">
+        <div layout="column">
+            <h1>Welcome Back</h1>
+            <p class="edhub-text-center" ng-class="{'edhub-general-error': rootAuthError}"><strong>{{rootAuthError}}</strong></p>
+            <div layout-gt-xs="row">
+                <md-input-container flex-gt-xs>
+                    <label>Email</label>
+                    <input name="userEmail" type="email" ng-model="login.email" required>
+                    <div ng-messages="loginForm.userEmail.$error">
+                        <div ng-message="required">Your email is required</div>
+                    </div>
+                    <!--<p>email: {{login.email}}</p>-->
+                </md-input-container>
+                <md-input-container flex-gt-xs>
+                    <label>Password</label>
+                    <input name="userPass" type="password" ng-model="login.pw" required>
+                    <div ng-messages="loginForm.userPass.$error">
+                        <div ng-message="required">A password is required</div>
+                    </div>
+                    <!--<p>pass: {{login.pw}}</p>-->
+                </md-input-container>
+            </div>
+            <div layout="row" layout-align="start center">
+                <md-button type="submit" class="md-accent md-raised edhub-w33">Login</md-button>
+                <p><i>... or</i></p>
+                <md-button class="md-secondary md-raised" ng-click="login.go2signup()">Sign Up</md-button>
+            </div>
+        </div>
+    </form>
+    <div ng-show="login.showProgress">
+        <md-progress-linear md-mode="indeterminite"></md-progress-linear>
+    </div>
+</div>

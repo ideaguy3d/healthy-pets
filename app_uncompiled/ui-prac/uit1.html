@@ -1,0 +1,135 @@
+<div id="prac-ng-anims" layout="row">
+    <!-- Side menu -->
+    <div ng-include="'layout/sidenav/in.sidenav.html'" layout="vertical" class="prac-include"></div>
+
+
+    <div layout="column" layout-padding>
+        <!-- ngClass Animation Practice ^_^ -->
+        <h1>ngClass Anim Practice</h1>
+        <a href="" ng-click="ui.togglePracNav()">
+            side menu <ng-md-icon icon="reorder"></ng-md-icon>
+        </a>
+        <div id="prac1-wrapper" layout="row" layout-xs="column" ng-class="{'jbaseclass': ui.toggle}">
+            <div id="sidediv-wrapper" flex="20" layout-padding style="background-color: firebrick;">
+                <div class="div-inline left-150">
+                    <ul>
+                        <li>Announcements</li>
+                        <li>Job Tasks</li>
+                        <li>Account Balance</li>
+                        <li>Source Code</li>
+                    </ul>
+                </div>
+
+                <div class="div-inline">
+                    <ul>
+                        <li>
+                            <ng-md-icon icon="announcement"></ng-md-icon>
+                        </li>
+                        <li>
+                            <ng-md-icon icon="work"></ng-md-icon>
+                        </li>
+                        <li>
+                            <ng-md-icon icon="account_balance"></ng-md-icon>
+                        </li>
+                        <li>
+                            <ng-md-icon icon="code"></ng-md-icon>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div flex layout-padding>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. At aut corporis cum, debitis doloremque
+                    ducimus exercitationem expedita ipsam iure maxime molestiae natus nulla quis reprehenderit sed
+                    temporibusunde velit voluptatibus!</p>
+            </div>
+        </div>
+
+        <h1>UI Test 1</h1>
+
+        <div layout="row" layout-xs="column" layout-padding>
+            <div flex layout-margin style="background-color: forestgreen; border: solid cornflowerblue">
+                <h2>row layout</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab accusantium amet animi blanditiis
+                    consequatur
+                    delectus eos eum eveniet facilis fuga, minima provident quasi quibusdam quo quos repudiandae saepe
+                    sapiente
+                    tenetur?</p>
+            </div>
+            <div flex layout-margin style="background-color: indianred; border: solid mediumpurple">
+                <h2>row layout</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab accusantium amet animi blanditiis
+                    consequatur
+                    delectus eos eum eveniet facilis fuga, minima provident quasi quibusdam quo quos repudiandae saepe
+                    sapiente
+                    tenetur?</p>
+            </div>
+        </div>
+
+        <hr>
+
+        <div layout="column" layout-padding="">
+            <div flex style="background-color: forestgreen;">
+                <h2>row layout</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab accusantium amet animi blanditiis
+                    consequatur
+                    delectus eos eum eveniet facilis fuga, minima provident quasi quibusdam quo quos repudiandae saepe
+                    sapiente
+                    tenetur?</p>
+            </div>
+            <div flex style="background-color: indianred;">
+                <h2>row layout</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab accusantium amet animi blanditiis
+                    consequatur
+                    delectus eos eum eveniet facilis fuga, minima provident quasi quibusdam quo quos repudiandae saepe
+                    sapiente
+                    tenetur?</p>
+            </div>
+        </div>
+
+        <hr>
+
+        <div layout="row" layout-xs="column">
+            <div layout="row" layout-padding layout-margin style="border: solid cornflowerblue">
+                <div flex style="background-color: forestgreen;">
+                    <h2>row layout</h2>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab accusantium amet animi blanditiis
+                        consequatur
+                        delectus eos eum eveniet facilis fuga, minima provident quasi quibusdam quo quos repudiandae
+                        saepe
+                        sapiente
+                        tenetur?</p>
+                </div>
+                <div flex style="background-color: indianred;">
+                    <h2>row layout</h2>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab accusantium amet animi blanditiis
+                        consequatur
+                        delectus eos eum eveniet facilis fuga, minima provident quasi quibusdam quo quos repudiandae
+                        saepe
+                        sapiente
+                        tenetur?</p>
+                </div>
+            </div>
+            <div layout="column" layout-padding layout-margin style="border: solid mediumpurple">
+                <div flex style="background-color: forestgreen;">
+                    <h2>row layout</h2>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab accusantium amet animi blanditiis
+                        consequatur
+                        delectus eos eum eveniet facilis fuga, minima provident quasi quibusdam quo quos repudiandae
+                        saepe
+                        sapiente
+                        tenetur?</p>
+                </div>
+                <div flex style="background-color: indianred;">
+                    <h2>row layout</h2>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab accusantium amet animi blanditiis
+                        consequatur
+                        delectus eos eum eveniet facilis fuga, minima provident quasi quibusdam quo quos repudiandae
+                        saepe
+                        sapiente
+                        tenetur?</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

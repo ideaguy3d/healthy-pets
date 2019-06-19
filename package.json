@@ -1,10 +1,6 @@
 {
-  "name": "plamigo",
+  "name": "app4pets",
   "version": "0.0.0",
-  "dependencies": {
-    "angular": "^1.6.5",
-    "angular-material": "^1.1.4"
-  },
   "repository": {},
   "devDependencies": {
     "@babel/cli": "^7.4.4",
@@ -43,6 +39,7 @@
   },
   "scripts": {
     "test": "grunt test",
-    "babel": "babel app -d app"
-  }
+    "build": "babel app -d app"
+  },
+  "dependencies": {}
 }

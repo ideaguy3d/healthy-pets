@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js" ng-app="edhubJobsApp">
+<head>
+    <meta charset="utf-8">
+    <title>Entirely Pets</title>
+    
+    <meta http-equiv="x-ua-compatible" content="IE=edge">
+    <meta name="description" content="For everything pets">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="author" content="github.com/ideaguy3d">
+    
+    <!-- build:css(.) styles/vendor.css -->
+    <!-- bower:css -->
+    <link rel="stylesheet" href="bower_components/angular-material/angular-material.css" />
+    <link rel="stylesheet" href="bower_components/angular-material-icons/angular-material-icons.css" />
+    <!-- endbower -->
+    <!-- endbuild -->
+    
+    <!-- build:css(.tmp) styles/main.css -->
+    <link rel="stylesheet" href="styles/edhub.css">
+    <link rel="stylesheet" href="styles/style.css">
+    <!-- endbuild -->
+    
+    <!-- ng-cloak -->
+    <style type="text/css">
+        [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+            display: none !important;
+        }
+    </style>
+</head>
+
+<body ng-controller="CoreCtrl">
+
+<!--[if lt IE 7]>
+<p class="browsehappy">
+    You are using an <strong>outdated</strong> browser. Please
+    <a href="http://browsehappy.com/">upgrade your browser</a>
+    to improve your experience.
+</p>
+<![endif]-->
+
+<!-------------------------------->
+<!-- main horizontal navigation -->
+<!-------------------------------->
+<div ng-include="'layout/navbar/in.main-nav.html'"></div>
+
+<div ng-cloak layout="row" class="edhub-main-app-view-container">
+    <!--------------------------------------->
+    <!----------- app entry point ----------->
+    <!--------------------------------------->
+    <ng-view flex autoscroll="true"></ng-view>
+</div>
+
+<!-- TODO: Put this footer into an include or a directive -->
+<!-- footer -->
+<footer layout="row" layout-xs="column" layout-align="center center" style="background-color: whitesmoke;">
+    <div flex="50">
+        <h1 class="j-text-center">
+            &copy; 2019 Entirely Pets INC
+        </h1>
+    </div>
+</footer>
+
+<!-- build:js(.) scripts/vendor.js -->
+<!-- bower:js -->
+<script src="bower_components/jquery/dist/jquery.js"></script>
+<script src="bower_components/angular/angular.js"></script>
+<script src="bower_components/firebase/firebase.js"></script>
+<script src="bower_components/angularfire/dist/angularfire.js"></script>
+<script src="bower_components/angular-md5/angular-md5.js"></script>
+<script src="bower_components/angular-animate/angular-animate.js"></script>
+<script src="bower_components/angular-aria/angular-aria.js"></script>
+<script src="bower_components/angular-messages/angular-messages.js"></script>
+<script src="bower_components/angular-material/angular-material.js"></script>
+<script src="bower_components/angular-material-icons/angular-material-icons.min.js"></script>
+<script src="bower_components/angular-route/angular-route.js"></script>
+<script src="bower_components/ngSmoothScroll/lib/angular-smooth-scroll.js"></script>
+<!-- endbower -->
+<!-- endbuild -->
+
+<!-- build:js({.tmp,app}) scripts/scripts.js -->
+<script src="app.js"></script>
+<!-- factories & services -->
+<script src="services/ser.auth.js"></script>
+<script src="services/ser.job.post.js"></script>
+<script src="services/ser.org.list.js"></script>
+<!-- controllers -->
+<script src="core.ctrl.js"></script>
+<script src="states/landing/ctrl.landing.js"></script>
+<script src="states/auth/ctrl.auth.js"></script>
+<script src="states/post/ctrl.post.js"></script>
+<script src="states/apply/ctrl.job.apply.js"></script>
+<script src="states/apply/ctrl.org.apply.js"></script>
+<script src="states/org-apps/ctrl.org-apps.js"></script>
+<script src="states/ycombinator/ctrl.yc-landing.js"></script>
+<!-- yc chat / messaging system prototype code -->
+<script src="states/ycombinator/chat/yc.chat.js"></script>
+<!-- endbuild -->
+
+
+</body>
+</html>

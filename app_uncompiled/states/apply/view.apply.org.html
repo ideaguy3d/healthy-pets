@@ -1,0 +1,53 @@
+<!-- ctrl=ApplyToOrgCtrl -->
+<div class="edhub-view-mtop">
+    <h1 class="edhub-text-center">Apply to {{applyToOrgCtrl.rParams.orgName}}</h1>
+    <h2 class="edhub-text-center">Glad to see you're interested in joining us!</h2>
+
+    <form name="applyToOrgForm" ng-submit="applyToOrgCtrl.applyToOrg()">
+        <div layout="column" flex-xs="100" flex-sm="90" flex-gt-sm="70" class="edhub-margin-auto layout-padding">
+            <!-- applicant name -->
+            <md-input-container class="md-icon-float md-block flex-gt-sm">
+                <label>Your Name</label>
+                <input type="text" name="applicantName" ng-model="applyToOrgCtrl.applyToOrgDataModel.applicantName"
+                       required>
+                <div ng-messages="applyToOrgForm.applicantName.$error">
+                    <div ng-message="required">Your Name is required</div>
+                </div>
+            </md-input-container>
+            <!-- applicant email -->
+            <md-input-container class="md-icon-float md-block flex-gt-sm">
+                <label>Your Email</label>
+                <input type="email" name="applicantEmail" ng-model="applyToOrgCtrl.applyToOrgDataModel.applicantEmail"
+                       required>
+                <div ng-messages="applyToOrgForm.applicantEmail.$error">
+                    <div ng-message="required">Your email is required</div>
+                </div>
+            </md-input-container>
+            <!-- applicant LinkedIn link -->
+            <md-input-container class="md-icon-float md-block flex-gt-sm">
+                <label>Full LinkedIn URL e.g. https://linkedin.com/in/YOUR_PROFILE</label>
+                <input type="url" name="applicantLinkedin"
+                       ng-model="applyToOrgCtrl.applyToOrgDataModel.applicantLinkedin" required>
+                <div ng-messages="applyToOrgForm.applicantLinkedin.$error">
+                    <div ng-message="required">Your LinkedIn is required</div>
+                </div>
+            </md-input-container>
+
+            <!-- applicant cover letter -->
+            <md-input-container class="md-icon-float md-block flex-gt-sm">
+                <label>Cover Letter (optional)</label>
+                <textarea name="applicantCover" rows="5" ng-model="applyToOrgCtrl.applyToOrgDataModel.applicantCover"></textarea>
+            </md-input-container>
+
+            <!-- TODO: make a skills field that'll use chips -->
+
+            <!-- TODO: make a btn to upload resume, cover letter, & other files -->
+
+            <!-- form buttons -->
+            <div layout="row">
+                <md-button type="submit" class="md-primary md-raised">Submit</md-button>
+                <md-button class="md-raised">Next</md-button>
+            </div>
+        </div>
+    </form>
+</div>

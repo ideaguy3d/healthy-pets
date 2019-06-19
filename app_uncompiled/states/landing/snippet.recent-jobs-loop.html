@@ -1,0 +1,45 @@
+<!-- START: Recent Job Posts LOOP -->
+<md-content class="md-padding" layout="row" layout-xs="column" layout-align="center center">
+    <div flex-xs flex-gt-xs="50" layout="column">
+        <!-- In-card mixed Actions CARD -->
+        <!-- LOOP START - landingCtrl.jobPostings  -->
+        <md-card ng-repeat="jobPost in landingCtrl.jobPostings | orderBy : 'timeStamp' : true"
+                 class="{{'edhub-landing-job'+$index}}">
+            <img ng-src="images/edhub-bg-2x.png" class="md-card-image" alt="Washed Out">
+            <md-card-title>
+                <md-card-title-text>
+                    <span class="md-headline">{{ jobPost.organizationName }}</span>
+                </md-card-title-text>
+            </md-card-title>
+            <md-card-actions layout="row" layout-align="start center">
+                <!-- Left side buttons -->
+                <md-card-icon-actions>
+                    <md-button class="md-icon-button" aria-label="Favorite">
+                        <ng-md-icon icon="favorite"></ng-md-icon>
+                    </md-button>
+                    <md-button class="md-icon-button" aria-label="Settings">
+                        <ng-md-icon icon="menu"></ng-md-icon>
+                    </md-button>
+                    <md-button class="md-icon-button" aria-label="Share">
+                        <ng-md-icon icon="share"></ng-md-icon>
+                    </md-button>
+                    <md-button class="md-icon-button" aria-label="Share">
+                        <ng-md-icon icon="Share"></ng-md-icon>
+                    </md-button>
+                </md-card-icon-actions>
+
+                <!-- Right Side buttons -->
+                <md-button data-ng-click="landingCtrl.apply2job(jobPost.organizationName, jobPost.$id)">
+                    Apply
+                </md-button>
+                <md-button data-ng-click="">
+                    Dismiss
+                </md-button>
+            </md-card-actions>
+            <md-card-content>
+                <p>{{jobPost.aboutTheOrganization}}</p>
+            </md-card-content>
+        </md-card>
+    </div>
+</md-content>
+<!-- END OF: Recent Job Posts -->

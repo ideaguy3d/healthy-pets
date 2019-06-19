@@ -1,0 +1,77 @@
+<!-- view controller "AuthCtrl" as "signup" -->
+<div id="edhub-tab-join-view" layout="column">
+
+    <!-- top of view -->
+    <div layout="row" layout-align="center center">
+        <md-tabs flex md-selected="selectedIndex" md-dynamic-height md-border-bottom
+                 md-autoselect md-swipe-content>
+
+            <!-- Partier login -->
+            <md-tab label="PARTIER">
+                <div layout="column" layout-gt-xs="row" layout-align="center center" layout-padding layout-wrap>
+                    <!-- Left side, "sales pitch"
+                    <div layout="column" layout-align="center center">
+                        <img src="images/signup.png" alt="signup">
+                    </div>
+                    -->
+                    <!-- Right side, input form -->
+                    <div id="edhub-signup-form" flex>
+                        <form name="userForm" ng-submit="signup.authSignup()" class="md-whiteframe-8dp">
+                            <div layout="column" layout-padding>
+                                <p ng-class="{'edhub-general-error': rootAuthError}">
+                                    <strong>{{rootAuthError}}</strong></p>
+                                <h2 ng-if="signup.error" class="edhub-general-error">
+                                    <small>{{ signup.error }}</small>
+                                </h2>
+
+                                <!-- email -->
+                                <md-input-container class="md-block" flex>
+                                    <label>Email</label>
+                                    <input type="email" name="email" ng-model="signup.email" required>
+                                    <!--<p>email: {{signup.email}}</p>-->
+                                </md-input-container>
+
+                                <!-- password -->
+                                <md-input-container class="md-block" flex>
+                                    <label>Password</label>
+                                    <input type="password" ng-model="signup.pw" required>
+                                    <!--<p>pass: {{signup.pw}}</p>-->
+                                </md-input-container>
+
+                                <!-- buttons at bottom of form -->
+                                <div layout="row" layout-align="start center">
+                                    <md-button type="submit" class="md-primary md-raised edhub-w33">Signup
+                                    </md-button>
+                                    <p><i>... or</i></p>
+                                    <md-button class="md-secondary md-raised" ng-click="signup.go2login()">Login
+                                    </md-button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </md-tab>
+
+            <!-- venue login -->
+            <md-tab label="VENUE">
+                <h4>Club, Bar, or Venue Login</h4>
+                <h1>Manage your account</h1>
+                <h2>Ello There ^_^/</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi architecto beatae consequatur
+                    doloribus ex minus perspiciatis porro qui sequi? Asperiores at earum facere hic id ipsum
+                    pariatur quisquam quo recusandae?</p>
+            </md-tab>
+        </md-tabs>
+    </div>
+
+    <br>
+    <md-divider></md-divider>
+    <br>
+
+    <!-- bottom of view -->
+    <md-button class="md-primary md-float" ng-click="signup.facebookSignin()">
+        Sign In with FaceBook
+    </md-button>
+
+</div>
+

@@ -1,0 +1,124 @@
+{
+    "type": "FeatureCollection",
+    "features": [
+        {
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -122.439227,
+                    37.778389
+                ]
+            },
+            "type": "Feature",
+            "properties": {
+                "category": "patisserie",
+                "hours": "10am - 6pm",
+                "description": "Funky bar inspires late nights with drinks & a dance floor in the back where events are hosted.",
+                "name": "Underground SF",
+                "phone": "(415) 745-1921"
+            }
+        },
+        {
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -122.396720,
+                    37.733294
+                ]
+            },
+            "type": "Feature",
+            "properties": {
+                "category": "patisserie",
+                "hours": "10am - 6pm",
+                "description": "High-energy nightspot with a Latin American flavor, offering live bands, DJs & a lively dance floor.",
+                "name": "El Toro Night Club",
+                "phone": "(415) 468-0670"
+            }
+        },
+        {
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -122.409936,
+                    37.760704
+                ]
+            },
+            "type": "Feature",
+            "properties": {
+                "category": "patisserie",
+                "hours": "10am - 6pm",
+                "description": "Open Fridays & Saturdays only, this Mission club draws crowds with DJ beats & cocktails.",
+                "name": "Bruno's",
+                "phone": "(415) 643-5200"
+            }
+        },
+        {
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -122.409592,
+                    37.764369
+                ]
+            },
+            "type": "Feature",
+            "properties": {
+                "category": "patisserie",
+                "hours": "10am - 6pm",
+                "description": "Converted ex-chapel featuring a 40-ft. arched ceiling, bar & a wide variety of live-music acts.",
+                "name": "The Chapel",
+                "phone": "(415) 551-5157"
+            }
+        },
+        {
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -122.396413,
+                    37.789601
+                ]
+            },
+            "type": "Feature",
+            "properties": {
+                "category": "patisserie",
+                "hours": "10am - 6pm",
+                "description": "Dramatic red lighting & burlesque art set the mood at this swanky lounge & late-night dance club.",
+                "name": "Harlot",
+                "phone": "(415) 777-1077"
+            }
+        },
+        {
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -122.413972,
+                    37.776532
+                ]
+            },
+            "type": "Feature",
+            "properties": {
+                "category": "patisserie",
+                "hours": "10am - 6pm",
+                "description": "Swanky multiroom lounge featuring a rotating mix of house & techno music, plus bottle service.",
+                "name": "F8 Nightclub & Bar",
+                "phone": "(415) 857-1192"
+            }
+        },
+        {
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -122.427222,
+                    37.800120
+                ]
+            },
+            "type": "Feature",
+            "properties": {
+                "category": "patisserie",
+                "hours": "10am - 6pm",
+                "description": "Nick's Crispy Tacos by day morphs into a chandeliered club with red-velvet booths & DJs at night.",
+                "name": "Rouge Night Club",
+                "phone": "(415) 346-7683"
+            }
+        }
+    ]
+}

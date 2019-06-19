@@ -1,0 +1,28 @@
+<div id="edhub-auth-info-container" flex-xs="70" flex-sm="50" flex-gt-sm="20">
+    <md-fab-speed-dial ng-hide="ccAuthBoxHidden" md-direction="down" md-open="ccAuthBoxIsOpen"
+                       class="md-scale md-fab-top-right"
+                       ng-class="{ 'md-hover-full': ccAuthBoxHover }"
+                       ng-mouseenter="ccAuthBoxIsOpen=true" ng-mouseleave="ccAuthBoxIsOpen=false">
+        <md-fab-trigger>
+            <md-button aria-label="menu" class="md-primary">
+                <ng-md-icon id="edhub-auth-box-avatar" icon="account_box" size="36"></ng-md-icon>
+                <p class="edhub-auth-box-username">
+                    {{rootEdhubAuthUser.email ? rootEdhubAuthUser.email : "Guest"}}
+                </p>
+            </md-button>
+        </md-fab-trigger>
+
+        <md-fab-actions>
+            <div ng-repeat="item in ccItems">
+                <md-button aria-label="{{item.name}}" class="md-fab md-raised md-mini"
+                           ng-click="ccAuthBoxAction($event, item)">
+                    <md-tooltip md-direction="{{item.direction}}" md-visible="tooltipVisible" md-autohide="false">
+                        {{ item.name }}
+                    </md-tooltip>
+                    <ng-md-icon icon="{{item.icon}}"></ng-md-icon>
+                    <md-icon md-svg-src="{{item.icon}}" aria-label="{{item.name}}"></md-icon>
+                </md-button>
+            </div>
+        </md-fab-actions>
+    </md-fab-speed-dial>
+</div>

@@ -1,0 +1,68 @@
+<!-- ctrl=PostJobCtrl -->
+<div class="edhub-view-mtop">
+    <form name="jobPostForm" ng-submit="postJobCtrl.listOrg()" ng-init="postJobCtrl.setFormScope(this)">
+        <div layout="column" flex-xs="100" flex-sm="90" flex-gt-sm="70" class="edhub-margin-auto layout-padding">
+            <h1>List Your Organization ^_^</h1>
+            <p>So candidates can send you general resumes emphasizing their strongest skills & preferred job titles.
+                Then you can see if you can make use of their abilities.</p>
+            <!-- organization name -->
+            <md-input-container class="md-icon-float md-block flex-gt-sm">
+                <label>Organizations' Name</label>
+                <!--<md-icon md-svg-src="images/svg/business.svg"></md-icon>-->
+                <input name="organizationName" ng-model="postJobCtrl.organization.orgName" required>
+                <div ng-messages="jobPostForm.orgName.$error">
+                    <div ng-message="required">An organization name is required.</div>
+                </div>
+            </md-input-container>
+            <!-- name -->
+            <md-input-container class="md-icon-float md-block flex-gt-sm">
+                <label>Your Name</label>
+                <!--<md-icon md-svg-src="images/svg/pencil.svg"></md-icon>-->
+                <input name="repName" type="text" ng-model="postJobCtrl.organization.name" required>
+                <div ng-messages="jobPostForm.name.$error">
+                    <div ng-message="required">Your name is required.</div>
+                </div>
+            </md-input-container>
+            <!-- email -->
+            <md-input-container class="md-icon-float md-block flex-gt-sm">
+                <label>Your Email (so the cadidate can contact you)</label>
+                <!--<md-icon md-svg-src="images/svg/email.svg"></md-icon>-->
+                <input name="repEmail" type="text" ng-model="postJobCtrl.organization.email" required>
+                <div ng-messages="jobPostForm.repEmail.$error">
+                    <div ng-message="required">Your email is required.</div>
+                </div>
+            </md-input-container>
+            <!-- password if NOT logged in -->
+            <div ng-hide="postJobCtrl.edhubAuthUser">
+                <md-input-container class="md-icon-float md-block flex-gt-sm">
+                    <label>Password (so you can login & see who has applied)</label>
+                    <input name="password" type="password" ng-model="postJobCtrl.organization.password" required>
+                    <div ng-messages="jobPostForm.password.$error">
+                        <div ng-message="required">A password is required</div>
+                    </div>
+                </md-input-container>
+            </div>
+            <!-- zip code -->
+            <md-input-container class="md-icon-float md-block flex-gt-sm">
+                <label>Organizations' zip code</label>
+                <!--<md-icon md-svg-src="images/svg/pin.svg"></md-icon>-->
+                <input name="zipcode" type="number" ng-model="postJobCtrl.organization.zipCode" required>
+                <div ng-messages="jobPostForm.zipcode.$error">
+                    <div ng-message="required">The organizations zipcode is required.</div>
+                </div>
+            </md-input-container>
+            <!-- about the organization -->
+            <md-input-container class="md-icon-float md-block flex-gt-sm">
+                <label>Tell the candidate about your organization</label>
+                <!--<md-icon md-svg-src="images/svg/sun1.svg"></md-icon>-->
+                <textarea name="zipcode" ng-model="postJobCtrl.organization.aboutTheOrganization" rows="5"></textarea>
+            </md-input-container>
+
+            <!-- buttons beneath fields -->
+            <div layout="row">
+                <md-button type="submit" class="md-raised">Post</md-button>
+                <md-button class="md-primary md-raised">Next</md-button>
+            </div>
+        </div>
+    </form>
+</div>
