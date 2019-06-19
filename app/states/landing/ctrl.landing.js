@@ -17,8 +17,10 @@
         vm.showVid = true;
         vm.ycombinatorMessage = "Talent Opportunities at Y Combinator";
         vm.petFood = [
-            // HARD CODED INDEXES
-            {productName: 2, catFlavor: 4, catCurrent:5, subGender: 6, subHasDied: 7, subCat: 8, price: 10, prodDes: 14}
+            {   // HARD CODED INDEXES
+                prodName: 2, catFlavor: 4, catCurrent:5, subGender: 6,
+                subHasDied: 7, subCat: 8, price: 10, prodDes: 14
+            }
         ];
 
         vm.apply2job = function (organizationName, postId) {
@@ -42,7 +44,9 @@
 
         function activate() {
             console.log("__>> Wired up and ready to rock and roll.");
+
             vm.petFood.push(MockPetFoodSer.allPetFood);
+            vm.petFood[1].shift();
             console.log(vm.petFood);
         }
     }

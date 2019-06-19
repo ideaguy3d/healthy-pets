@@ -41,26 +41,30 @@
 
 
     <!-- START: Product Search results -->
-    <md-grid-list md-cols-xs="1" md-cols-sm="2" md-cols-md="3" md-cols-lg="3" md-cols-xl="4"
-                  md-row-height="4:5" md-gutter="8px"> <!-- md-gutter-gt-sm="8px"  md-row-height-gt-sm="3:3"-->
-
-        <!-- NG-REPEAT LOOP START - data card landingCtrl.jobPostings -->
-        <md-grid-tile ng-repeat="pet in landingCtrl.petFood[1]">
-            <md-card class="{{'j-landing-job'+$index}}">
+    <md-content id="edhub-org-feed" class="md-padding" layout="row" layout-xs="column"
+                layout-align="center center">
+        <div flex-xs flex-gt-xs="50" layout="column">
+            <!-- In-card mixed Actions CARD -->
+            <!-- NG-LOOP - 1 column data card landingCtrl.jobPostings -->
+            <md-card ng-repeat="post in landingCtrl.petFood[1] | orderBy : 'timestamp' : true track by $index"
+                     class="{{'edhub-landing-job'+$index}}">
                 <!-- image -->
                 <img ng-src="images/edhub-bg-2x.png" class="md-card-image" alt="Washed Out">
                 <!-- header -->
                 <md-card-title>
                     <md-card-title-text>
-                        <span class="md-headline">{{ pet[landingCtrl.petFood[0].prodName] }}</span>
+                        <span class="md-headline">{{ post.orgName }}</span>
                     </md-card-title-text>
                 </md-card-title>
                 <!-- action buttons -->
                 <md-card-actions layout="row" layout-align="start center">
                     <!-- apply button -->
-                    <md-button ng-click="landingCtrl.apply2org(pet[landingCtrl.petFood[0].price])"
-                               class="md-primary md-raised">
-                        {{pet[landingCtrl.petFood[0].price]}}
+                    <md-button class="md-primary md-raised" ng-click="landingCtrl.apply2org(post)">
+                        Buy Now
+                    </md-button>
+                    <!-- dismiss button -->
+                    <md-button class="md-raised" ng-click="">
+                        Add to cart
                     </md-button>
                     <!-- help button -->
                     <md-button class="md-icon-button" aria-label="help">
@@ -70,12 +74,12 @@
 
                 <!-- Organization Description -->
                 <md-card-content>
-                    <p>{{pet[landingCtrl.petFood[0].prodDes]}}</p>
+                    <p>{{post.aboutTheOrganization}}</p>
                 </md-card-content>
             </md-card>
-        </md-grid-tile>
-    </md-grid-list>
-    <!-- END OF: Product Search results -->
+        </div>
+    </md-content>
+    <!-- END OF: Recent Job Posts -->
 
     <!-- START: md-card templates 1 -->
     <!--
