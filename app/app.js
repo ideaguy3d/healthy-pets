@@ -13,6 +13,29 @@ angular.module('edhubJobsApp', [
                 controller: 'LandingCtrl',
                 controllerAs: 'landingCtrl'
             })
+            .when('/chat', {
+                templateUrl: 'states/ycombinator/chat/view.yc-home.html',
+                controller: 'ycAuthCtrl',
+                controllerAs: 'cycAuth',
+                resolve: {
+                    // the user does not have to be authenticated
+                    requireNoAuth: function ($location, ycAuthSer) {
+                        ycAuthSer.auth.$requireSignIn()
+                                 .then(function (authUser) {
+                                     // if the user is already logged in send them to the channels state
+                                     $location.url('/ycombinator/channels');
+                                 })
+                                 .catch(function (error) {
+                                     var errorMessage = '__>> ERROR - error while going to UI state home';
+                                     console.log(errorMessage, error);
+                                     return errorMessage;
+                                 });
+                    }
+                }
+            })
+            .when('/cart', {
+                templateUrl: 'states/cart/view.cart.html'
+            })
 
 
             /*********************************************
@@ -30,26 +53,6 @@ angular.module('edhubJobsApp', [
                 templateUrl: 'states/ycombinator/chat/view.yc-home.html',
                 controller: 'YCombinatorLandingCtrl',
                 controllerAs: 'landingCtrl',
-                resolve: {
-                    // the user does not have to be authenticated
-                    requireNoAuth: function ($location, ycAuthSer) {
-                        ycAuthSer.auth.$requireSignIn()
-                                 .then(function (authUser) {
-                                     // if the user is already logged in send them to the channels state
-                                     $location.url('/ycombinator/channels');
-                                 })
-                                 .catch(function (error) {
-                                     var errorMessage = '__>> ERROR - error while going to UI state home';
-                                     console.log(errorMessage, error);
-                                     return errorMessage;
-                                 });
-                    }
-                }
-            })
-            .when('/ycombinator/chat', {
-                templateUrl: 'states/ycombinator/chat/view.yc-chat.html',
-                controller: 'ycAuthCtrl',
-                controllerAs: 'cycAuth',
                 resolve: {
                     // the user does not have to be authenticated
                     requireNoAuth: function ($location, ycAuthSer) {

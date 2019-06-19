@@ -1,28 +1,5 @@
 <!-- ctrl=LandingCtrl as landingCtrl -->
 <section id="edhub-landing-section">
-    <!-- ~ Decent looking UI Section for when I implement the Job Search functionality ~
-    <md-content layout-padding>
-        <md-toolbar class="text-center">
-            <h2 md-truncate>Search for a job in Education</h2>
-        </md-toolbar>
-        <div layout-gt-sm="row">
-            <md-input-container flex>
-                <label>Keyword</label>
-                <input>
-            </md-input-container>
-
-            <md-input-container flex>
-                <label>Location</label>
-                <input>
-            </md-input-container>
-        </div>
-        <md-button class="md-raised" aria-label="Search">
-            Search For Education Jobs
-        </md-button>
-    </md-content>
-
-    <br><br>
-    -->
 
     <!-- START:  Hero Landing -->
     <section id="j-main-landing-hero" class="j-landing-hero j-overflow-hidden" layout="column"
@@ -38,9 +15,30 @@
     <!-- Search Result tool -->
     <md-toolbar id="edhub-recent-jobs-landing-title" class="md-padding j-text-center">
         <div layout="row" layout-padding layout-margin>
-            <span>Dogs</span> <span>Cats</span>
+            <md-button>Dogs</md-button>
+            <md-button>Cats</md-button>
+
+            <md-input-container>
+                <label>Topping</label>
+                <md-select ng-model="selectedToppings" multiple="">
+                    <md-optgroup label="Meats">
+                        <md-option ng-value="topping.name" ng-repeat="topping in toppings | filter: {category: 'meat' }">
+                            {{topping.name}}
+                        </md-option>
+                    </md-optgroup>
+                    <md-optgroup label="Veggies">
+                        <md-option ng-value="topping.name" ng-repeat="topping in toppings | filter: {category: 'veg' }">
+                            {{topping.name}}
+                        </md-option>
+                    </md-optgroup>
+                </md-select>
+            </md-input-container>
         </div>
     </md-toolbar>
+
+    <p ng-if="selectedToppings">
+        You ordered a {{size.toLowerCase()}} pizza with {{printSelectedToppings()}}.
+    </p>
 
 
     <!-- START: Product Search results -->
@@ -50,12 +48,13 @@
         <!-- NG-REPEAT LOOP START - data card landingCtrl.jobPostings -->
         <md-grid-tile ng-repeat="pet in landingCtrl.petFood[1]">
             <md-card class="{{'j-landing-job'+$index}}">
+
                 <!-- image -->
                 <img ng-src="images/pet.png" class="md-card-image" alt="Washed Out">
 
                 <!-- header -->
                 <md-card-title>
-                    <md-card-title-text>
+                    <md-card-title-text layout="row" layout-align="center center">
                         <span class="md-headline">{{ pet[landingCtrl.petFood[0].prodName] }}</span>
                     </md-card-title-text>
                 </md-card-title>

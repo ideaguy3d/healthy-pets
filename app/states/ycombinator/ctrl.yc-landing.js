@@ -2,7 +2,6 @@
  * Created by Julius Alvarado on 3/4/2019.
  */
 
-
 (function () {
     "use strict";
 
