@@ -44,9 +44,7 @@
 
         function activate() {
             console.log("__>> Wired up and ready to rock and roll.");
-
             vm.petFood.push(MockPetFoodSer.allPetFood);
-            vm.petFood[1].shift();
             console.log(vm.petFood);
         }
     }
