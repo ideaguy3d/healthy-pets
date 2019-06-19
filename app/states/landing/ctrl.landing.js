@@ -1,40 +1,50 @@
-"use strict";
-
 /**
  ** Created by Julius Alvarado on 9/4/2017.
  */
+
 (function () {
-  'use strict';
+    'use strict';
 
-  angular.module('edhubJobsApp').controller('LandingCtrl', ['edhubJobPostService', '$location', 'smoothScroll', '$rootScope', LandingClass]);
+    angular.module('edhubJobsApp').controller('LandingCtrl', [
+        'edhubJobPostService', '$location', 'smoothScroll', '$rootScope',
+        'MockPetFoodSer', LandingClass
+    ]);
 
-  function LandingClass(edhubJobPostService, $location, smoothScroll, $rootScope) {
-    var vm = this;
-    vm.jobPostBg = "images/chalkboard3dArt1.png";
-    vm.showVid = true;
-    vm.ycombinatorMessage = "Talent Opportunities at Y Combinator";
+    function LandingClass(edhubJobPostService, $location, smoothScroll, $rootScope, MockPetFoodSer) {
+        const vm = this;
 
-    vm.apply2job = function (organizationName, postId) {
-      $location.url('/apply/' + postId + '/' + organizationName);
-    };
+        vm.jobPostBg = "images/chalkboard3dArt1.png";
+        vm.showVid = true;
+        vm.ycombinatorMessage = "Talent Opportunities at Y Combinator";
+        vm.petFood = [
+            // HARD CODED INDEXES
+            {productName: 2, catFlavor: 4, catCurrent:5, subGender: 6, subHasDied: 7, subCat: 8, price: 10, prodDes: 14}
+        ];
 
-    vm.apply2org = function (orgInfo) {
-      if ($rootScope.rootEdhubAuthUser) {
-        $location.url('/apply/' + orgInfo.orgId + '/' + orgInfo.orgName);
-      } else {
-        $location.url('/view-job/' + orgInfo.orgId + '/' + orgInfo.orgName);
-      }
-    };
+        vm.apply2job = function (organizationName, postId) {
+            $location.url('/apply/' + postId + '/' + organizationName);
+        };
 
-    vm.scroll2recentJobs = function () {
-      var elem = document.getElementById("edhub-recent-jobs-landing-title");
-      smoothScroll(elem);
-    };
+        vm.apply2org = function (orgInfo) {
+            if ($rootScope.rootEdhubAuthUser) {
+                $location.url('/apply/' + orgInfo.orgId + '/' + orgInfo.orgName);
+            } else {
+                $location.url('/view-job/' + orgInfo.orgId + '/' + orgInfo.orgName)
+            }
+        };
 
-    activate();
+        vm.scroll2recentJobs = function () {
+            var elem = document.getElementById("edhub-recent-jobs-landing-title");
+            smoothScroll(elem);
+        };
 
-    function activate() {
-      console.log("__>> Wired up and ready to rock and roll.");
+        activate();
+
+        function activate() {
+            console.log("__>> Wired up and ready to rock and roll.");
+            vm.petFood.push(MockPetFoodSer.allPetFood);
+            console.log(vm.petFood);
+        }
     }
-  }
-})();
+
+}());

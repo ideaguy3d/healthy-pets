@@ -13,7 +13,7 @@ Then create a .babelrc with `{
   "presets": ["@babel/preset-env"]
 }` and add `"scripts": {
     "build": "babel app -d app"
-  }` to the package.json
+  }` to the package.json. _IMPORTANT: copy and paste the app folder to save an uncompiled version of the app BEFORE compiling it (i.e. `$npm run build`) because it's a lot easier to work with human written code than compiler output code_
 
 
 ----
