@@ -22,19 +22,57 @@
         vm.petFood = [
             {   // HARD CODED INDEXES
                 prodName: 2, catFlavor: 4, catCurrent: 5, subGender: 6,
-                subHasDied: 7, subCat: 8, price: 10, prodDes: 14
+                subHasDied: 7, subHonorary: 8, price: 10, prodDes: 14
+            }
+        ];
+        vm.categories = [
+            {category: 'food_flavor', value: 'chicken'},
+            {category: 'food_flavor', value: 'beef'},
+            {category: 'food_flavor', value: 'salmon'},
+            {category: 'is_current', value: 'YES'},
+            {category: 'is_current', value: 'NO'}
+        ];
+
+        vm.subcats = [
+            {
+                subcat: 'gender',
+                value: 'MALE'
+            },{
+                subcat: 'gender',
+                value: 'FEMALE'
+            },{
+                subcat: 'has_died',
+                value: 'YES'
+            },{
+                subcat: 'has_died',
+                value: 'NO'
+            },{
+                subcat: 'honorary',
+                value: 'Full'
+            },{
+                subcat: 'honorary',
+                value: 'Honorary'
+            },{
+                subcat: 'honorary',
+                value: 'Academy'
+            },{
+                subcat: 'honorary',
+                value: 'Probationary'
             }
         ];
 
+        // update the data presentation state
         vm.changePresentState = function (newState) {
             vm.presentState = newState;
 
-            if(!catFood || !dogFood) {
+            if (!catFood || !dogFood) {
                 let dataSet = vm.petFood[1];
                 let fieldTitle = vm.petFood[0];
                 let rec, catCount = 0, dogCount = 0;
 
-                // TODO: Seperate data on server with a firebase db query
+                // TODO: Separate data on server with a firebase db query
+                //  (though, a PHP/SQL api/db server would be the best solution eventually)
+
                 // separate cat and dog data
                 for (let i = 0; i < dataSet.length; i++) {
                     rec = dataSet[i];
@@ -57,13 +95,13 @@
                     vm.petFood[1] = dogFood;
                 }
             }
-            else if(newState === 'cat') {
+            else if (newState === 'cat') {
                 vm.petFood[1] = catFood;
             }
-            else if(newState === 'dog') {
+            else if (newState === 'dog') {
                 vm.petFood[1] = dogFood;
             }
-            else if(newState === 'all') {
+            else if (newState === 'all') {
                 vm.petFood[1] = allPetsFood;
             }
 
@@ -99,6 +137,7 @@
                 var lastToppingConjunction = (needsOxfordComma ? ',' : '') + ' and ';
                 var lastTopping = lastToppingConjunction +
                     this.selectedToppings[this.selectedToppings.length - 1];
+
                 return this.selectedToppings.slice(0, -1).join(', ') + lastTopping;
             }
 
@@ -114,9 +153,42 @@
 
         function activate() {
             console.log("__>> Wired up and ready to rock and roll.");
-            vm.petFood.push(MockPetFoodSer.allPetFood);
+            let allPetFood = MockPetFoodSer.allPetFood;
+            vm.petFood.push(allPetFood);
             console.log(vm.petFood);
             allPetsFood = vm.petFood[1];
+
+            allPetFood.$loaded().then(function (response) {
+                console.log('The promise has been fulfilled with response: ', response);
+                let fieldTitle = vm.petFood[0];
+                // add additional info to data for better categorizing
+                for (let i = 0; i < vm.petFood[1].length; i++) {
+                    let rec = vm.petFood[1][i];
+
+                    vm.petFood[1][i][rec.length] = [
+                        {
+                            category: 'is_current',
+                            value: rec[fieldTitle.catCurrent]
+                        }, {
+                            category: 'food_flavor',
+                            value: rec[fieldTitle.catFlavor]
+                        }, {
+                            subcat: 'gender',
+                            value: rec[fieldTitle.subGender]
+                        }, {
+                            subcat: 'has_died',
+                            value: rec[fieldTitle.subHasDied]
+                        }, {
+                            subcat: 'honorary',
+                            value: rec[fieldTitle.subHonorary]
+                        }
+                    ];
+
+                    let b = 'point';
+                } // end of for-loop to add category objects to each record
+
+                console.log('done adding category objects');
+            })
         }
     }
 
