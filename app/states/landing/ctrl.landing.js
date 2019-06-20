@@ -16,16 +16,18 @@
         let catFood;
         let dogFood;
 
-        vm.catFood = [];
-        vm.dogFood = [];
-        vm.presentState = 'all';
-        vm.petFood = [
+        $scope.s_catFood = [];
+        $scope.s_dogFood = [];
+        $scope.s_presentState = 'all';
+        $scope.s_petFood = [
             {   // HARD CODED INDEXES
                 prodName: 2, catFlavor: 4, catCurrent: 5, subGender: 6,
                 subHasDied: 7, subHonorary: 8, price: 10, prodDes: 14
             }
         ];
-        vm.categories = [
+
+        $scope.s_selectedCats = [];
+        $scope.s_categories = [
             {category: 'food_flavor', value: 'chicken'},
             {category: 'food_flavor', value: 'beef'},
             {category: 'food_flavor', value: 'salmon'},
@@ -33,41 +35,25 @@
             {category: 'is_current', value: 'NO'}
         ];
 
-        vm.subcats = [
-            {
-                subcat: 'gender',
-                value: 'MALE'
-            },{
-                subcat: 'gender',
-                value: 'FEMALE'
-            },{
-                subcat: 'has_died',
-                value: 'YES'
-            },{
-                subcat: 'has_died',
-                value: 'NO'
-            },{
-                subcat: 'honorary',
-                value: 'Full'
-            },{
-                subcat: 'honorary',
-                value: 'Honorary'
-            },{
-                subcat: 'honorary',
-                value: 'Academy'
-            },{
-                subcat: 'honorary',
-                value: 'Probationary'
-            }
+        $scope.s_selectedSubcats = [];
+        $scope.s_subcats = [
+            {subcat: 'gender', value: 'MALE'},
+            {subcat: 'gender', value: 'FEMALE'},
+            {subcat: 'has_died', value: 'YES'},
+            {subcat: 'has_died', value: 'NO'},
+            {subcat: 'honorary', value: 'Full'},
+            {subcat: 'honorary', value: 'Honorary'},
+            {subcat: 'honorary', value: 'Academy'},
+            {subcat: 'honorary', value: 'Probationary'}
         ];
 
         // update the data presentation state
-        vm.changePresentState = function (newState) {
-            vm.presentState = newState;
+        $scope.s_changePresentState = function (newState) {
+            $scope.s_presentState = newState;
 
             if (!catFood || !dogFood) {
-                let dataSet = vm.petFood[1];
-                let fieldTitle = vm.petFood[0];
+                let dataSet = $scope.s_petFood[1];
+                let fieldTitle = $scope.s_petFood[0];
                 let rec, catCount = 0, dogCount = 0;
 
                 // TODO: Separate data on server with a firebase db query
@@ -77,32 +63,32 @@
                 for (let i = 0; i < dataSet.length; i++) {
                     rec = dataSet[i];
                     if (rec[fieldTitle.prodName].indexOf('Cat') > 0) {
-                        vm.catFood[catCount] = rec;
+                        $scope.s_catFood[catCount] = rec;
                         catCount++;
                     }
                     else if (rec[fieldTitle.prodName].indexOf('Dog') > 0) {
-                        vm.dogFood[dogCount] = rec;
+                        $scope.s_dogFood[dogCount] = rec;
                         dogCount++;
                     }
                 }
 
                 if (newState === 'cat') {
-                    catFood = vm.catFood;
-                    vm.petFood[1] = catFood;
+                    catFood = $scope.s_catFood;
+                    $scope.s_petFood[1] = catFood;
                 }
                 else if (newState === 'dog') {
-                    dogFood = vm.dogFood;
-                    vm.petFood[1] = dogFood;
+                    dogFood = $scope.s_dogFood;
+                    $scope.s_petFood[1] = dogFood;
                 }
             }
             else if (newState === 'cat') {
-                vm.petFood[1] = catFood;
+                $scope.s_petFood[1] = catFood;
             }
             else if (newState === 'dog') {
-                vm.petFood[1] = dogFood;
+                $scope.s_petFood[1] = dogFood;
             }
             else if (newState === 'all') {
-                vm.petFood[1] = allPetsFood;
+                $scope.s_petFood[1] = allPetsFood;
             }
 
         };
@@ -126,6 +112,7 @@
         ];
 
         $scope.selectedToppings = [];
+
         $scope.printSelectedToppings = function printSelectedToppings() {
             var numberOfToppings = this.selectedToppings.length;
 
@@ -144,7 +131,7 @@
             return this.selectedToppings.join('');
         };
 
-        vm.scroll2recentJobs = function () {
+        $scope.s_scroll2recentJobs = function () {
             var elem = document.getElementById("edhub-recent-jobs-landing-title");
             smoothScroll(elem);
         };
@@ -154,18 +141,17 @@
         function activate() {
             console.log("__>> Wired up and ready to rock and roll.");
             let allPetFood = MockPetFoodSer.allPetFood;
-            vm.petFood.push(allPetFood);
-            console.log(vm.petFood);
-            allPetsFood = vm.petFood[1];
+            $scope.s_petFood.push(allPetFood);
+            console.log($scope.s_petFood);
+            allPetsFood = $scope.s_petFood[1];
 
             allPetFood.$loaded().then(function (response) {
-                console.log('The promise has been fulfilled with response: ', response);
-                let fieldTitle = vm.petFood[0];
+                let fieldTitle = $scope.s_petFood[0];
                 // add additional info to data for better categorizing
-                for (let i = 0; i < vm.petFood[1].length; i++) {
-                    let rec = vm.petFood[1][i];
+                for (let i = 0; i < $scope.s_petFood[1].length; i++) {
+                    let rec = $scope.s_petFood[1][i];
 
-                    vm.petFood[1][i][rec.length] = [
+                    let info =[
                         {
                             category: 'is_current',
                             value: rec[fieldTitle.catCurrent]
@@ -184,10 +170,22 @@
                         }
                     ];
 
-                    let b = 'point';
+                    let arInfo = [
+                        rec[fieldTitle.catCurrent], rec[fieldTitle.catFlavor], rec[fieldTitle.subGender],
+                        rec[fieldTitle.subHasDied], rec[fieldTitle.subHonorary]
+                    ];
+
+                    let strInfo = arInfo.join(' | ');
+
+                    info.forEach(function (elem) {
+                        $scope.s_petFood[1][i].push(elem);
+                        $scope.s_petFood[1][i].push(arInfo);
+                        $scope.s_petFood[1][i].push({strCat: strInfo});
+                    });
+
                 } // end of for-loop to add category objects to each record
 
-                console.log('done adding category objects');
+                let b = 'point';
             })
         }
     }

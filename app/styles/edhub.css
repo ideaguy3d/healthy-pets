@@ -159,7 +159,7 @@ md-content.yc-landing-hero {
 
 @media screen and (max-width: 416px) {
     #j-main-landing-hero.j-landing-hero {
-        background-size: 602px;
+        /*background-size: 602px;*/
         background-position: top;
     }
 
