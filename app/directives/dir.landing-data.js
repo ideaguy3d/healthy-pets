@@ -1,13 +1,13 @@
+"use strict";
+
 (function () {
-    'use strict';
+  'use strict';
 
-    angular.module('edhubJobsApp').directive('landingData', [
-        LandingDataDirectiveClass
-    ]);
+  angular.module('edhubJobsApp').directive('landingData', [LandingDataDirectiveClass]);
 
-    function LandingDataDirectiveClass() {
-        return {
-            templateUrl: 'directives/temps/temp.landing-data.html'
-        }
-    }
-}());
+  function LandingDataDirectiveClass() {
+    return {
+      templateUrl: 'directives/temps/temp.landing-data.html'
+    };
+  }
+})();

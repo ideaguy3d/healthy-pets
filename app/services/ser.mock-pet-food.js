@@ -1,23 +1,22 @@
+"use strict";
+
 (function () {
-    'use strict';
+  'use strict';
 
-    angular.module('edhubJobsApp').factory('MockPetFoodSer', [
-        '$firebaseArray', MockPetFoodSerClass
-    ]);
+  angular.module('edhubJobsApp').factory('MockPetFoodSer', ['$firebaseArray', MockPetFoodSerClass]);
 
-    function MockPetFoodSerClass($firebaseArray) {
-       const mockPetFoodRef = firebase.database().ref('pracData/petFood');
-
-       return {
-           allPetFood: $firebaseArray(mockPetFoodRef),
-           catFood: function () {
-               let query = mockPetFoodRef.orderByKey().equalTo('_Cat Food');
-               return $firebaseArray(query);
-           },
-           dogFood: function () {
-               let query = mockPetFoodRef.orderByKey().equalTo('_Dog Food');
-               return $firebaseArray(query);
-           }
-       }
-    }
-}());
+  function MockPetFoodSerClass($firebaseArray) {
+    var mockPetFoodRef = firebase.database().ref('pracData/petFood');
+    return {
+      allPetFood: $firebaseArray(mockPetFoodRef),
+      catFood: function catFood() {
+        var query = mockPetFoodRef.orderByKey().equalTo('_Cat Food');
+        return $firebaseArray(query);
+      },
+      dogFood: function dogFood() {
+        var query = mockPetFoodRef.orderByKey().equalTo('_Dog Food');
+        return $firebaseArray(query);
+      }
+    };
+  }
+})();

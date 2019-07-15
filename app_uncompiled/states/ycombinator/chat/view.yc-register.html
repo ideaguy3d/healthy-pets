@@ -1,4 +1,4 @@
-<div class="page-wrapper">
+<div class="page-wrapper" layout="column" layout-align="center center" layout-margin layout-padding>
     <div class="page-header">
         <h1>Register</h1>
         <h4>status: {{cycAuth.authInfo}}</h4>
@@ -10,7 +10,9 @@
 
     <form id="ycombinator-register-form"  data-ng-submit="cycAuth.register()">
         <div class="input-group">
-            <input type="email" class="form-control" placeholder="Email" data-ng-model="cycAuth.user.email">
+<!--            <label for="email">Please append a random number to email because "chat@app.com" is already taken</label>-->
+            <input name="email" id="email" type="email" class="form-control" placeholder="Email"
+                   data-ng-model="cycAuth.user.email">
         </div>
         <div class="input-group">
             <input type="password" class="form-control" placeholder="Password" data-ng-model="cycAuth.user.password">

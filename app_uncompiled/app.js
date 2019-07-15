@@ -9,26 +9,14 @@ angular.module('edhubJobsApp', [
                 controllerAs: 'landingCtrl'
             })
             .when('/data', {
-                templateUrl: '',
-                controller: '',
-                controllerAs: ''
-            })
-
-            /*******************************************
-             * Other UI States to use as reference code *
-             ******************************************/
-
-
-            // Y Combinator states - 8 states
-            .when('/ycombinator/positions', {
-                templateUrl: 'states/ycombinator/view.yc-landing.html',
-                controller: 'YCombinatorLandingCtrl',
+                templateUrl: 'states/data/view.data.html',
+                controller: 'LandingCtrl',
                 controllerAs: 'landingCtrl'
             })
-            .when('/ycombinator/home', {
+            .when('/chat', {
                 templateUrl: 'states/ycombinator/chat/view.yc-home.html',
-                controller: 'YCombinatorLandingCtrl',
-                controllerAs: 'landingCtrl',
+                controller: 'ycAuthCtrl',
+                controllerAs: 'cycAuth',
                 resolve: {
                     // the user does not have to be authenticated
                     requireNoAuth: function ($location, ycAuthSer) {
@@ -45,10 +33,26 @@ angular.module('edhubJobsApp', [
                     }
                 }
             })
-            .when('/ycombinator/chat', {
-                templateUrl: 'states/ycombinator/chat/view.yc-chat.html',
-                controller: 'ycAuthCtrl',
-                controllerAs: 'cycAuth',
+            .when('/cart', {
+                templateUrl: 'states/cart/view.cart.html'
+            })
+
+
+            /*********************************************
+             * Other UI States to use as reference code *
+             ********************************************/
+
+
+            // Y Combinator states - 8 states
+            .when('/ycombinator/positions', {
+                templateUrl: 'states/ycombinator/view.yc-landing.html',
+                controller: 'YCombinatorLandingCtrl',
+                controllerAs: 'landingCtrl'
+            })
+            .when('/ycombinator/home', {
+                templateUrl: 'states/ycombinator/chat/view.yc-home.html',
+                controller: 'YCombinatorLandingCtrl',
+                controllerAs: 'landingCtrl',
                 resolve: {
                     // the user does not have to be authenticated
                     requireNoAuth: function ($location, ycAuthSer) {

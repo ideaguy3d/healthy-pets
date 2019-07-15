@@ -1,0 +1,91 @@
+<!-- ctrl=LandingCtrl as landingCtrl -->
+<section id="edhub-landing-section">
+
+    <!-- START:  Hero Landing -->
+    <section id="j-main-landing-hero" class="j-landing-hero j-overflow-hidden" layout="column"
+             layout-align="center center" layout-padding>
+        <div class="j-landing-hero-text">
+            <h1>Entirely Pets</h1>
+            <p style="font-weight: lighter">
+                <small>Avenger Themed Food</small>
+            </p>
+        </div>
+    </section>
+
+    <!-- Search Result tool -->
+    <md-toolbar id="edhub-recent-jobs-landing-title" class="md-padding j-text-center">
+        <div layout="row" layout-padding layout-margin>
+            <md-button ng-click="s_changePresentState('dog')">Dogs</md-button>
+            <md-button ng-click="s_changePresentState('cat')">Cats</md-button>
+            <md-button ng-click="s_changePresentState('all')">
+                All Pets <ng-md-icon data-icon="favorite"></ng-md-icon>
+            </md-button>
+        </div>
+
+        <div layout="row" layout-padding layout-margin>
+            <!-- Categories multi-select  -->
+            <md-input-container>
+                <label>Categories</label>
+                <md-select data-ng-model="s_selectedCats" multiple>
+                    <md-optgroup label="Avenger Pet Food Flavor">
+                        <md-option data-ng-value="c.value"
+                                   ng-repeat="c in s_categories | filter: {category: 'food_flavor' }">
+                            {{c.value}}
+                        </md-option>
+                    </md-optgroup>
+                    <md-optgroup label="Avenger Is Current">
+                        <md-option data-ng-value="c.value"
+                                   ng-repeat="c in s_categories | filter: {category: 'is_current' }">
+                            {{c.value}}
+                        </md-option>
+                    </md-optgroup>
+                </md-select>
+            </md-input-container>
+
+            <!-- Subcategories multi-select -->
+            <md-input-container>
+                <label>Subcategories</label>
+                <md-select data-ng-model="s_selectedSubcats" multiple>
+                    <md-optgroup label="Avenger Gender">
+                        <md-option data-ng-value="sub.value"
+                                   ng-repeat="sub in s_subcats | filter: {subcat: 'gender' }">
+                            {{sub.value}}
+                        </md-option>
+                    </md-optgroup>
+                    <md-optgroup label="Avenger Has Died">
+                        <md-option data-ng-value="sub.value"
+                                   ng-repeat="sub in s_subcats | filter: {subcat: 'has_died' }">
+                            {{sub.value}}
+                        </md-option>
+                    </md-optgroup>
+                    <md-optgroup label="Honorary Avenger">
+                        <md-option data-ng-value="sub.value"
+                                   ng-repeat="sub in s_subcats | filter: {subcat: 'honorary' }">
+                            {{sub.value}}
+                        </md-option>
+                    </md-optgroup>
+                </md-select>
+            </md-input-container>
+        </div>
+    </md-toolbar>
+
+    <p>selected categories = {{s_selectedCats}}, selected subcategories = {{s_selectedSubcats}}</p>
+
+    <div ng-switch="s_presentState">
+        <div ng-switch-when="all">
+            <h1 class="j-text-center">All pets <3 </h1>
+            <landing-data></landing-data>
+        </div>
+
+        <div ng-switch-when="cat">
+            <h1 class="j-text-center">Avengers themed Cat food</h1>
+            <landing-data></landing-data>
+        </div>
+
+        <div ng-switch-when="dog">
+            <h1 class="j-text-center">Avengers themed Dog food</h1>
+            <landing-data></landing-data>
+        </div>
+    </div>
+
+</section>

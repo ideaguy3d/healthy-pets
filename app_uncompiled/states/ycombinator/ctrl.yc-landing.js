@@ -1,19 +1,17 @@
 /**
- ** Created by Julius Alvarado on 9/4/2017.
+ * Created by Julius Alvarado on 3/4/2019.
  */
 
 (function () {
-    'use strict';
+    "use strict";
 
-    angular.module('edhubJobsApp').controller('LandingCtrl', [
-        'edhubJobPostService', '$location', 'smoothScroll',
+    angular.module('edhubJobsApp').controller('YCombinatorLandingCtrl', [
+        'edhubJobPostService', '$location', 'smoothScroll', 'OrgListSer',
         '$rootScope', LandingClass
     ]);
 
-    function LandingClass(edhubJobPostService, $location, smoothScroll, $rootScope) {
-
+    function LandingClass(edhubJobPostService, $location, smoothScroll, OrgListSer, $rootScope) {
         const vm = this;
-
         vm.jobPostBg = "images/chalkboard3dArt1.png";
         vm.showVid = true;
         vm.ycombinatorMessage = "Talent Opportunities at Y Combinator";
@@ -26,7 +24,7 @@
             if ($rootScope.rootEdhubAuthUser) {
                 $location.url('/apply/' + orgInfo.orgId + '/' + orgInfo.orgName);
             } else {
-                $location.url('/view-job/' + orgInfo.orgId + '/' + orgInfo.orgName)
+                 $location.url('/view-job/'+ orgInfo.orgId + '/' + orgInfo.orgName)
             }
         };
 
@@ -38,7 +36,11 @@
         activate();
 
         function activate() {
-            console.log("__>> Wired up and ready to rock and roll.");
+            OrgListSer.ycReadFromOrgFeed(5, 'timestamp').$loaded().then(function (data) {
+                vm.orgFeed = data;
+            }).catch(function (error) {
+                console.error('edhub - Error: ', error);
+            });
         }
     }
 

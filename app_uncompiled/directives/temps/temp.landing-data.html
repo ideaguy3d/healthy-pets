@@ -1,0 +1,41 @@
+<div class="j-landing-data-directive-template">
+    <!-- START: Product Search results -->
+    <md-grid-list md-cols-xs="1" md-cols-sm="2" md-cols-md="3" md-cols-lg="3" md-cols-xl="4"
+                  md-row-height="4:7" md-gutter="8px"> <!-- md-gutter-gt-sm="8px"  md-row-height-gt-sm="3:3"-->
+
+        <!-- NG-REPEAT LOOP START - data card s_jobPostings -->
+        <md-grid-tile ng-repeat="pet in s_petFood[1] | filter:{strCat: s_selectedCats.join(' | ')} track by $index">
+            <md-card class="{{'j-landing-job_'+$index}}">
+
+                <!-- image -->
+                <img ng-src="images/pet.png" class="md-card-image" alt="Washed Out">
+
+                <!-- card header -->
+                <md-card-title>
+                    <md-card-title-text layout="row" layout-align="center center">
+                        <span class="md-headline">{{ pet[s_petFood[0].prodName] }}</span>
+                    </md-card-title-text>
+                </md-card-title>
+                <!-- action buttons -->
+                <md-card-actions layout="row" layout-align="center center">
+                    <!-- buy button -->
+                    <md-button class="md-primary md-raised">
+                        {{pet[s_petFood[0].price]}}
+                    </md-button>
+                    <md-button>
+                        {{pet[s_petFood[0].catFlavor]}}
+                    </md-button>
+                </md-card-actions>
+
+                <!-- Organization Description -->
+                <md-card-content layout="row" layout-align="center center">
+                    <a ng-href="{{pet[0]}}" target="_blank">
+                        <ng-md-icon icon="person_pin"></ng-md-icon>
+                        Avenger Info | current: {{pet[s_petFood[0].catCurrent]}}
+                    </a>
+                </md-card-content>
+            </md-card>
+        </md-grid-tile>
+    </md-grid-list>
+    <!-- END OF: Product Search results -->
+</div>

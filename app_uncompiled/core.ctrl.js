@@ -3,12 +3,11 @@
  */
 
 (function () {
-    "use strict";
+    'use strict';
 
     angular.module('edhubJobsApp').controller('CoreCtrl', [
         '$rootScope', '$scope', '$mdSidenav', '$mdDialog', '$timeout',
-        'edhubAuthService', '$location',
-        CoreClass
+        'edhubAuthService', '$location', CoreClass
     ]);
 
     function CoreClass(

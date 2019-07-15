@@ -46,7 +46,7 @@
         <div flex-xs flex-gt-xs="50" layout="column">
             <!-- In-card mixed Actions CARD -->
             <!-- NG-LOOP - 1 column data card landingCtrl.jobPostings -->
-            <md-card ng-repeat="post in landingCtrl.orgFeed | orderBy : 'timestamp' : true"
+            <md-card ng-repeat="post in landingCtrl.petFood[1] | orderBy : 'timestamp' : true track by $index"
                      class="{{'edhub-landing-job'+$index}}">
                 <!-- image -->
                 <img ng-src="images/edhub-bg-2x.png" class="md-card-image" alt="Washed Out">
